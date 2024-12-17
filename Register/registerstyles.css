@@ -63,6 +63,7 @@ body {
 #verifyAadhaar {
     font-size: 0.875rem; /* Smaller font size for the button */
     padding: 0.375rem 0.75rem; /* Adjust button padding for better size */
+    cursor: crosshair;
     
 }
 
