@@ -53,11 +53,11 @@ body {
 
 /* Form elements styling */
 .pass {
-    background-color: #2b2b2b;
+    /* background-color: #2b2b2b;
     border: 1px solid #444;
     color: #2b2b2b;
-    position: relative;
-    transition: all 0.6s ease-in-out; /* Smooth text color transition */
+    position: relative; */
+    transition: all 0.6s ease; /* Smooth text color transition */
 }
 
 /* Change placeholder color to light gray */
