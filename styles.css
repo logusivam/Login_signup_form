@@ -26,7 +26,7 @@ body {
 .form-control {
     background-color: #2e2e2e;
     border: 1px solid #444;
-    color: #2e2e2e; /* Initially transparent text */
+    color: #4d4c4c; /* Initially placeholder text */
     position: relative;
     transition: all 0.8s ease-in-out; /* Smooth text color transition */
 }
