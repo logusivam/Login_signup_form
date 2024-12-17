@@ -55,14 +55,29 @@ body {
     position: relative;
 }
 
+.input-group .form-control {
+    border-right: none; /* Remove right border to avoid overlap with button */
+    padding-right: 50px; /* Add padding to the right side for button space */
+    border-radius: 10px; /* Round corners of the input */
+}
+
 .input-group .btn {
     position: absolute;
     right: 5px; /* Align button to the right inside the input */
     top: 50%;
-    transform: translateY(-65%);
+    transform: translateY(-50%); /* Center the button vertically */
     padding: 0.375rem 0.75rem; /* Smaller button size */
     font-size: 0.875rem; /* Smaller text */
-    border-radius: 5px; 
+    border-radius: 10px; /* Border radius on all sides for the button */
+    height: 100%; /* Make the button height match the input field */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group .btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 
