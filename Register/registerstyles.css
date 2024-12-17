@@ -209,7 +209,7 @@ body {
     }
 
     .input-group {
-        width: 100%;  /* Ensure full width on small screens */
+        width: 100%;  /* Ensure full width on small screens */ 
     }
 
     .input-group .form-control {
@@ -218,6 +218,7 @@ body {
 
     .input-group .btn {
         padding: 0.375rem 0.75rem;  /* Smaller button size on mobile */
+        max-height: 10px;
     }
 }
 
