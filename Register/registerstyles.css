@@ -42,10 +42,9 @@ body {
 /* birthdayinfo icon */
 .birthdayinfo{
     position: absolute;
-    left: 60px;
-    top: 7%;
+    left: 60px; 
     padding: 2px;
-    transform: translateY(-50%);
+    transform: translateY(-10%);
     font-size: 17px;
     color: lightgray;
     cursor: pointer;
