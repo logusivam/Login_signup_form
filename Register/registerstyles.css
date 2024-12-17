@@ -58,6 +58,7 @@ body {
 
 .input-group .btn {
     border-left: none; /* Remove border overlap */
+    size: 14px;
 }
 
 
