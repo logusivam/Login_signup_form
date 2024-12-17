@@ -88,7 +88,12 @@
 
                     <div class="mb-3">
                         <label for="aadhaar" class="form-label text-light">Aadhaar Number</label>
-                        <input type="text" class="form-control" id="aadhaar" maxlength="14" placeholder="XXXX XXXX XXXX" required>
+                        <div class="input-group">
+                            <!-- Aadhaar Input Field -->
+                            <input type="text" class="form-control" id="aadhaar" maxlength="14" placeholder="XXXX XXXX XXXX" required>
+                            <!-- Verify Button -->
+                            <button class="btn btn-primary" type="button" id="verifyAadhaar">Verify</button>
+                        </div>
                     </div>
 
                     <div class="mb-3">
