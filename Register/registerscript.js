@@ -17,6 +17,24 @@ aadhaarInput.addEventListener("input", function (e) {
     e.target.value = formattedValue.trim();
 });
 
+//aadhaar verify button
+function enableVerifyButton() {
+    const aadhaarInput = document.getElementById('aadhaar');
+    const verifyButton = document.getElementById('verifyAadhaar');
+
+    // Regular expression to check if Aadhaar number is in the format XXXX XXXX XXXX
+    const aadhaarPattern = /^\d{4} \d{4} \d{4}$/;
+
+    // Enable the button if Aadhaar number is correctly entered, else disable it
+    if (aadhaarPattern.test(aadhaarInput.value)) {
+        verifyButton.disabled = false;  // Enable button
+        verifyButton.style.cursor = "pointer";  // Show pointer cursor when button is enabled
+    } else {
+        verifyButton.disabled = true;   // Disable button
+        verifyButton.style.cursor = "not-allowed";  // Show disabled cursor
+    }
+}
+
 // Password Field
 const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("password");
