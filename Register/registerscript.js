@@ -93,6 +93,33 @@ function validatePassword() {
     }
 }
 
+// check the password match
+function checkPasswordsMatch() {
+    const passwordInput = document.getElementById("password");
+    const confirmPasswordInput = document.getElementById("confirmPassword");
+    const confirmPasswordAlert = document.getElementById("confirmPasswordAlert");
+
+    if (confirmPasswordInput.value === "") {
+        confirmPasswordAlert.innerHTML = ""; // Clear message when confirm password is empty
+        confirmPasswordInput.classList.remove("is-valid", "is-invalid");
+        return;
+    }
+
+    // Check if passwords match
+    if (passwordInput.value === confirmPasswordInput.value) {
+        confirmPasswordAlert.innerHTML = "Passwords match!";
+        confirmPasswordAlert.classList.remove("text-danger");
+        confirmPasswordAlert.classList.add("text-success");
+        confirmPasswordInput.classList.remove("is-invalid");
+        confirmPasswordInput.classList.add("is-valid");
+    } else {
+        confirmPasswordAlert.innerHTML = "Passwords do not match!";
+        confirmPasswordAlert.classList.remove("text-success");
+        confirmPasswordAlert.classList.add("text-danger");
+        confirmPasswordInput.classList.remove("is-valid");
+        confirmPasswordInput.classList.add("is-invalid");
+    }
+}
 
 // Password Field
 const togglePassword = document.getElementById("togglePassword");
