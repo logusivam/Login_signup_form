@@ -51,29 +51,20 @@ body {
     z-index: 10; /* Ensure the question mark is above other elements */
 }
 
-.input-group {
-    position: relative;
+.d-flex {
     display: flex;
-    align-items: center;  /* Center content vertically */
+    align-items: center;
 }
 
-.input-group .form-control {
-    border-right: none;  /* Remove right border to prevent overlap with button */
-    /*border-radius: 10px 0 0 10px;   Rounded left corners */
-    padding-right: 2.5rem;  /* Give space for the button */
+.me-3 {
+    margin-right: 15px; /* Space between label and button */
 }
 
-.input-group .btn {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 0.375rem 0.75rem; /* Smaller button size */
-    font-size: 0.875rem; /* Smaller text size */
-    border-radius: 0 10px 10px 0; /* Rounded right corners */
-    z-index: 1; /* Ensure button is above the input */
-    height: 100%; /* Button should match input height */
+#verifyAadhaar {
+    font-size: 0.875rem; /* Smaller font size for the button */
+    padding: 0.375rem 0.75rem; /* Adjust button padding for better size */
 }
+
 
 /* Form elements styling */
 .pass {
@@ -206,20 +197,7 @@ body {
 @media (max-width: 576px) {
     .sign-up-form {
         padding: 20px;
-    }
-
-    .input-group {
-        width: 100%;  /* Ensure full width on small screens */ 
-    }
-
-    .input-group .form-control {
-        padding-right: 3.5rem;  /* Adjust the padding to give more room for the button */
-    }
-
-    .input-group .btn {
-        padding: 0.375rem 0.75rem;  /* Smaller button size on mobile */
-        max-height: 10px;
-    }
+    } 
 }
 
 /* Add spacing between stacked dropdowns */
