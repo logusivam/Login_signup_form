@@ -82,6 +82,24 @@ body {
     color: #fff;
 }
 
+/* password alert */
+.is-valid {
+    border-color: #28a745; /* Green border for valid input */
+}
+.is-invalid {
+    border-color: #dc3545; /* Red border for invalid input */
+}
+.text-danger {
+    color: #dc3545; /* Red text for error messages */
+}
+.text-success {
+    color: #28a745; /* Green text for success messages */
+}
+#passwordAlert {
+    font-size: 0.9rem; /* Smaller font size for the alert text */
+    margin-top: 5px;
+}
+
 /* Positioning the Eye Icon */
 .eye-icon {
     position: absolute;
