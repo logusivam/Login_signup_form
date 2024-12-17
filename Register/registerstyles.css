@@ -52,13 +52,15 @@ body {
 }
 
 /* Optional: Add padding for better alignment */
-.input-group .form-control {
-    border-right: none; /* Remove border overlap */
-}
+/*.input-group .form-control {
+    border-right: none;  Remove border overlap 
+}*/
 
 .input-group .btn {
     border-left: none; /* Remove border overlap */
-    size: 14px;
+    background-size: 10px;
+    color: #fff;
+    background-color: #1DA1F2;
 }
 
 
