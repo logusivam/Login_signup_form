@@ -45,6 +45,7 @@ function validatePassword() {
     const lengthCheck = /.{8,}/;  // At least 8 characters
     const uppercaseCheck = /[A-Z]/;  // At least one uppercase
     const lowercaseCheck = /[a-z]/;  // At least one lowercase
+    const numericCheck = /[0-9]/; // At least one numeric value
     const allowedSpecialCharCheck = /[^\w\d!@#\$%^&*]/;  // Excluded special characters
     const specialCharCheck = /[!@#\$%^&*]/;  // Only allowed special characters
     
@@ -65,12 +66,17 @@ function validatePassword() {
         alertMessage += "• Password must contain at least one lowercase letter.<br>";
     }
 
-    // Rule 4: Special character check
+    // Rule 4: Numeric value check
+    if (!numericCheck.test(password)) {
+        alertMessage += "• Password must contain at least one numeric value.<br>";
+    }
+
+    // Rule 5: Special character check
     if (!specialCharCheck.test(password)) {
         alertMessage += "• Password must contain at least one special character (!, @, #, $, %, ^, &, *).<br>";
     }
 
-    // Rule 5: Disallowed special characters check
+    // Rule 6: Disallowed special characters check
     if (allowedSpecialCharCheck.test(password)) {
         alertMessage += "• Password contains disallowed special characters.<br>";
     }
