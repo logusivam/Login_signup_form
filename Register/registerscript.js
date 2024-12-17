@@ -1,3 +1,21 @@
+//Aadhaar validation
+const aadhaarInput = document.getElementById("aadhaar");
+
+aadhaarInput.addEventListener("input", function (e) {
+    let value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+    let formattedValue = "";
+
+    // Loop to group digits into sets of 4
+    for (let i = 0; i < value.length; i++) {
+        if (i > 0 && i % 4 === 0) {
+            formattedValue += " "; // Add space after every 4 digits
+        }
+        formattedValue += value[i];
+    }
+
+    // Update the input value with formatted string
+    e.target.value = formattedValue.trim();
+});
 
 // Password Field
 const togglePassword = document.getElementById("togglePassword");
