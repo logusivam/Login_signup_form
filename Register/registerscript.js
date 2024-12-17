@@ -35,6 +35,65 @@ function enableVerifyButton() {
     }
 }
 
+//validate password
+function validatePassword() {
+    const passwordInput = document.getElementById("password");
+    const passwordAlert = document.getElementById("passwordAlert");
+    const password = passwordInput.value;
+
+    // Define regular expressions for the password rules
+    const lengthCheck = /.{8,}/;  // At least 8 characters
+    const uppercaseCheck = /[A-Z]/;  // At least one uppercase
+    const lowercaseCheck = /[a-z]/;  // At least one lowercase
+    const allowedSpecialCharCheck = /[^\w\d!@#\$%^&*]/;  // Excluded special characters
+    const specialCharCheck = /[!@#\$%^&*]/;  // Only allowed special characters
+    
+    let alertMessage = "";
+
+    // Rule 1: Length check
+    if (!lengthCheck.test(password)) {
+        alertMessage += "• Password must be at least 8 characters long.<br>";
+    }
+
+    // Rule 2: Uppercase letter check
+    if (!uppercaseCheck.test(password)) {
+        alertMessage += "• Password must contain at least one uppercase letter.<br>";
+    }
+
+    // Rule 3: Lowercase letter check
+    if (!lowercaseCheck.test(password)) {
+        alertMessage += "• Password must contain at least one lowercase letter.<br>";
+    }
+
+    // Rule 4: Special character check
+    if (!specialCharCheck.test(password)) {
+        alertMessage += "• Password must contain at least one special character (!, @, #, $, %, ^, &, *).<br>";
+    }
+
+    // Rule 5: Disallowed special characters check
+    if (allowedSpecialCharCheck.test(password)) {
+        alertMessage += "• Password contains disallowed special characters.<br>";
+    }
+
+    // Update the alert message below the input field
+    passwordAlert.innerHTML = alertMessage;
+
+    // Change border color for visual feedback
+    if (alertMessage === "") {
+        passwordInput.classList.remove("is-invalid");
+        passwordInput.classList.add("is-valid");
+        passwordAlert.classList.remove("text-danger");
+        passwordAlert.classList.add("text-success");
+        passwordAlert.innerHTML = "Password is strong!";
+    } else {
+        passwordInput.classList.remove("is-valid");
+        passwordInput.classList.add("is-invalid");
+        passwordAlert.classList.remove("text-success");
+        passwordAlert.classList.add("text-danger");
+    }
+}
+
+
 // Password Field
 const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("password");
