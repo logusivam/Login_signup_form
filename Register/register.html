@@ -110,7 +110,7 @@
 
                     <div class="mb-3 position-relative">
                         <label for="password" class="form-label text-light">Password</label>
-                        <input type="password" class="form-control pass" id="password" placeholder="Enter your password" required oninput="validatePassword()">
+                        <input type="password" class="form-control pass" id="password" placeholder="Enter your password" required oninput="validatePassword(); checkPasswordsMatch();">
                         <!-- Eye Icon -->
                         <span class="eye-icon" id="togglePassword">
                             <i class="fa-solid fa-eye" id="eyeIcon"></i>
@@ -127,7 +127,7 @@
 
                     <div class="mb-3 position-relative">
                         <label for="confirmPassword" class="form-label text-light">Confirm Password</label>
-                        <input type="password" class="form-control pass" id="confirmPassword" placeholder="Confirm your password" required>
+                        <input type="password" class="form-control pass" id="confirmPassword" placeholder="Confirm your password" required oninput="checkPasswordsMatch();">
                         <!-- Eye Icon -->
                     <span class="eye-icon" id="toggleConfirmPassword">
                         <i class="fa-solid fa-eye" id="confirmEyeIcon"></i>
