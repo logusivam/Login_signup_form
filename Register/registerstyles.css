@@ -56,10 +56,6 @@ body {
     align-items: center;
 }
 
-.me-3 {
-    margin-right: 15px; /* Space between label and button */
-}
-
 #verifyAadhaar {
     font-size: 0.875rem; /* Smaller font size for the button */
     padding: 0.375rem 0.75rem; /* Adjust button padding for better size */
