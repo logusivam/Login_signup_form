@@ -59,7 +59,7 @@ body {
 
 .input-group .form-control {
     border-right: none;  /* Remove right border to prevent overlap with button */
-    border-radius: 10px 0 0 10px;  /* Rounded left corners */
+    /*border-radius: 10px 0 0 10px;   Rounded left corners */
     padding-right: 2.5rem;  /* Give space for the button */
 }
 
@@ -207,6 +207,7 @@ body {
     .sign-up-form {
         padding: 20px;
     }
+    
 }
 
 /* Add spacing between stacked dropdowns */
