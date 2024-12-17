@@ -79,7 +79,8 @@ body {
 
 /* Text appears when beam is active */
 .show-text {
-    color: #fff ; /* Fade text to white */
+    color: #ffffff ; /* Fade text to white */
+    transition: color 0.5s ease-in-out; /* Gradual text color change */
 }
 
 /* Eye Icon Hover Effect */
