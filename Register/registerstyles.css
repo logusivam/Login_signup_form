@@ -207,7 +207,18 @@ body {
     .sign-up-form {
         padding: 20px;
     }
-    
+
+    .input-group {
+        width: 100%;  /* Ensure full width on small screens */
+    }
+
+    .input-group .form-control {
+        padding-right: 3.5rem;  /* Adjust the padding to give more room for the button */
+    }
+
+    .input-group .btn {
+        padding: 0.375rem 0.75rem;  /* Smaller button size on mobile */
+    }
 }
 
 /* Add spacing between stacked dropdowns */
