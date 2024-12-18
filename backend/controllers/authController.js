@@ -4,7 +4,18 @@ const { generateOTP, sendOTPEmail } = require('../utils/otp');
 
 // Signup Logic
 exports.signup = async (req, res) => {
-    const { firstName, lastName, country, birthday, aadhaarNumber, email, mobileCode, mobileNumber, password } = req.body;
+    const { 
+        firstName,
+        lastName,
+        country,
+        birthday,
+        aadhaar,
+        email,
+        password,
+        mobile,
+        countryCode,
+        verificationMethod 
+    } = req.body;
 
     try {
         // Check if user already exists
@@ -13,16 +24,24 @@ exports.signup = async (req, res) => {
 
         // Generate OTP
         const otp = generateOTP();
-        const otpExpires = new Date(Date.now() + 10 * 60 * 1000); // Expires in 10 mins
+        const otpExpires = new Date(Date.now() + 10 * 60 * 1000); // Expires in 10 minutes
 
-        // Hash Password
+        // Hash Password with bcrypt
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Create User
         const user = new User({
-            firstName, lastName, country, birthday, aadhaarNumber,
-            email, mobileCode, mobileNumber,
-            password: hashedPassword, otp, otpExpires,
+            firstName,
+            lastName,
+            country,
+            birthday,
+            aadhaarNumber,
+            email,
+            mobileCode,
+            mobileNumber,
+            password: hashedPassword,  // Save hashed password
+            otp,
+            otpExpires,
         });
 
         await user.save();
@@ -35,6 +54,7 @@ exports.signup = async (req, res) => {
         res.status(500).json({ message: 'Error signing up', error });
     }
 };
+
 
 // Verify OTP Logic
 exports.verifyOTP = async (req, res) => {
