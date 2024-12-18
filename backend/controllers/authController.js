@@ -13,8 +13,7 @@ exports.signup = async (req, res) => {
         email,
         password,
         mobile,
-        countryCode,
-        verificationMethod 
+        countryCode 
     } = req.body;
 
     try {
