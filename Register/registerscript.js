@@ -308,6 +308,9 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
 
         if (response.ok) {
             alert('User registered successfully!');
+            // Redirect to the desired page after successful signup
+            window.location.href = 'path/to/your/page.html'; // Change this to the page URL
+
         } else {
             alert(`Error: ${result.message}`);
         }
