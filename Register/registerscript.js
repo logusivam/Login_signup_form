@@ -91,11 +91,14 @@ function validatePassword() {
         passwordAlert.classList.remove("text-danger");
         passwordAlert.classList.add("text-success");
         passwordAlert.innerHTML = "Password is strong!";
+        validationIcon.innerHTML = "✔"; // Tick icon
     } else {
         passwordInput.classList.remove("is-valid");
         passwordInput.classList.add("is-invalid");
         passwordAlert.classList.remove("text-success");
         passwordAlert.classList.add("text-danger");
+        validationIcon.innerHTML = "&#x26A0;"; // Warning icon
+
     }
 }
 
