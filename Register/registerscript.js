@@ -218,29 +218,46 @@ toggleConfirmPassword.addEventListener("click", () => {
 function handleCapsLock(event, inputId, alertId) {
     let capsLockAlert = document.getElementById(alertId);
 
-    // Check if Caps Lock is on or off
-    if (event.getModifierState("CapsLock")) {
-        capsLockAlert.textContent = "Caps Lock is ON";
-        capsLockAlert.classList.add("visible");
+    // Safeguard: Ensure capsLockAlert exists
+    if (!capsLockAlert) {
+        console.error(`Alert element with ID "${alertId}" not found.`);
+        return;
+    }
+
+    // Safeguard: Check if event.getModifierState exists
+    if (typeof event.getModifierState === "function") {
+        // Check if Caps Lock is on or off
+        if (event.getModifierState("CapsLock")) {
+            capsLockAlert.textContent = "Caps Lock is ON";
+            capsLockAlert.classList.add("visible");
+        } else {
+            capsLockAlert.textContent = "Caps Lock is OFF";
+            capsLockAlert.classList.remove("visible");
+        }
     } else {
-        capsLockAlert.textContent = "Caps Lock is OFF";
-        capsLockAlert.classList.remove("visible");
+        console.warn("getModifierState is not supported in this browser.");
     }
 }
 
-// Add event listeners to email and password fields
-document.getElementById("email").addEventListener("keydown", function(event) {
-    handleCapsLock(event, "email", "emailCapsLockAlert");
-});
-
-// Add event listeners to passowrd and confirmpassword fields
-document.getElementById("confirmPassword").addEventListener("keydown", function(event) {
-    handleCapsLock(event, "confirmPassword", "confirmPasswordCapsLockAlert");
-});
-
-document.getElementById("password").addEventListener("keydown", function(event) {
-    handleCapsLock(event, "password", "passwordCapsLockAlert");
-});
+// Safeguard: Add event listeners only if elements exist
+const emailInput = document.getElementById("email");
+if (emailInput) {
+    emailInput.addEventListener("keydown", function(event) {
+        handleCapsLock(event, "email", "emailCapsLockAlert");
+    });
+}
+ 
+if (passwordInput) {
+    passwordInput.addEventListener("keydown", function(event) {
+        handleCapsLock(event, "password", "passwordCapsLockAlert");
+    });
+}
+ 
+if (confirmPasswordInput) {
+    confirmPasswordInput.addEventListener("keydown", function(event) {
+        handleCapsLock(event, "confirmPassword", "confirmPasswordCapsLockAlert");
+    });
+}
 
 
 
