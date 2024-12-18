@@ -111,6 +111,11 @@
                     <div class="mb-3 position-relative">
                         <label for="password" class="form-label text-light">Password</label>
                         <input type="password" class="form-control pass" id="password" placeholder="Enter your password" required oninput="validatePassword(); checkPasswordsMatch();">
+                        
+                        <!-- Tick/Error Icon -->
+                        <span class="validation-icon position-absolute" id="validationIcon" 
+                        style="right: 35px; top: 50%; transform: translateY(-50%); font-size: 18px;"></span>
+
                         <!-- Eye Icon -->
                         <span class="eye-icon" id="togglePassword">
                             <i class="fa-solid fa-eye" id="eyeIcon"></i>
