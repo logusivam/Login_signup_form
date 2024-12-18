@@ -15,6 +15,7 @@ exports.signup = async (req, res) => {
         mobile,
         countryCode 
     } = req.body;
+    
 
     try {
         // Check if user already exists
