@@ -83,20 +83,6 @@ body {
     color: #fff;
 }
 
-/* Validation icon position (before the eye icon) */
-.validation-icon {
-    position: absolute;
-    right: 35px; /* Place 25px to the left of the eye icon */
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: #dc3545; /* Default color (red for invalid) */
-}
-
-.validation-icon.valid {
-    color: #28a745; /* Green for valid */
-}
-
 
 /* password alert */
 .is-valid {
