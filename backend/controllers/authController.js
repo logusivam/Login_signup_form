@@ -4,18 +4,7 @@ const { generateOTP, sendOTPEmail } = require('../utils/otp');
 
 // Signup Logic
 exports.signup = async (req, res) => {
-    const {
-        firstName,
-        lastName,
-        country,
-        birthday,
-        aadhaar,
-        email,
-        password,
-        mobile,
-        countryCode 
-    } = req.body;
-    
+    const { firstName, lastName, country, birthday, aadhaarNumber, email, mobileCode, mobileNumber, password } = req.body;
 
     try {
         // Check if user already exists
