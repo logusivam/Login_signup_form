@@ -28,6 +28,7 @@ body {
     border: 1px solid #444;
     color: #4d4c4c; /* Initially placeholder text */
     position: relative;
+    padding-right: 40px;
     transition: all 0.8s ease-in-out; /* Smooth text color transition */
 }
 
@@ -53,7 +54,7 @@ body {
     cursor: pointer;
     color: #aaa;
     font-size: 1.2rem;
-    z-index: 10;
+    z-index: 10; 
 }
 
 /* Beam Effect */
