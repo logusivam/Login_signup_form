@@ -1,3 +1,19 @@
+//country list 
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/api/countries')
+        .then(response => response.json())
+        .then(countries => {
+            const countrySelect = document.getElementById('country');
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country;
+                option.textContent = country;
+                countrySelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error fetching countries:', error));
+});
+
 //Aadhaar validation
 const aadhaarInput = document.getElementById("aadhaar");
 
