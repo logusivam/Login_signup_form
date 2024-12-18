@@ -18,6 +18,11 @@ exports.signup = async (req, res) => {
     } = req.body;
 
     try {
+        // Check if all required fields are present
+        if (!firstName || !lastName || !email || !password || !mobile) {
+            return res.status(400).json({ message: 'Please provide all required fields.' });
+        }
+
         // Check if user already exists
         const userExists = await User.findOne({ email });
         if (userExists) return res.status(400).json({ message: 'User already exists' });
