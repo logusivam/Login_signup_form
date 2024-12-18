@@ -16,9 +16,7 @@ router.post('/signup', async (req, res) => {
             password,
             mobile,
             countryCode,
-            verificationMethod,
-            receiveAnnounceEmails,
-            receiveRecommEmails
+            verificationMethod 
         } = req.body;
 
         // Validate required fields
@@ -37,9 +35,7 @@ router.post('/signup', async (req, res) => {
             password,
             mobile,
             countryCode,
-            verificationMethod,
-            receiveAnnounceEmails,
-            receiveRecommEmails
+            verificationMethod 
         });
 
         // Save the user to MongoDB
