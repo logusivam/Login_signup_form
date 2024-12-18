@@ -256,3 +256,46 @@ document.getElementById('verifyCall').addEventListener('change', function() {
 // Initialize Bootstrap tooltips
 var tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
 var tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
+
+document.getElementById('signupForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Capture form data
+    const formData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        country: document.getElementById('country').value,
+        birthday: `${document.getElementById('dobYear').value}-${document.getElementById('dobMonth').value}-${document.getElementById('dobDay').value}`,
+        aadhaar: document.getElementById('aadhaar').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        mobile: document.getElementById('mobile').value,
+        countryCode: document.getElementById('countryCode').value,
+        verificationMethod: document.querySelector('input[name="verificationMethod"]:checked').id,/* 
+        receiveAnnounceEmails: document.getElementById('receiveAnnounceEmails').checked,
+        receiveRecommEmails: document.getElementById('receiveRecommEmails').checked, */
+    };
+
+    try {
+        // Send data to the backend
+        const response = await fetch('http://localhost:5000/api/auth/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert('User registered successfully!');
+        } else {
+            alert(`Error: ${result.message}`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again.');
+    }
+});
