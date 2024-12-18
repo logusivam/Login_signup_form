@@ -3,19 +3,16 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    country: { type: String, required: true },
-    birthday: {
-        day: { type: Number, required: true },
-        month: { type: String, required: true },
-        year: { type: Number, required: true },
-    },
-    aadhaarNumber: { type: String, required: true },
+    country: { type: String },
+    birthday: { type: String },
+    aadhaar: { type: String },
     email: { type: String, required: true, unique: true },
-    mobileCode: { type: String, required: true },
-    mobileNumber: { type: String, required: true },
-    otp: { type: String, required: false },
-    otpExpires: { type: Date, required: false },
     password: { type: String, required: true },
-});
+    mobile: { type: String, required: true },
+    countryCode: { type: String },
+    verificationMethod: { type: String },/* 
+    receiveAnnounceEmails: { type: Boolean, default: false },
+    receiveRecommEmails: { type: Boolean, default: false }, */
+}, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);
