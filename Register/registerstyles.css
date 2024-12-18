@@ -66,8 +66,7 @@ body {
     background-color: #2b2b2b;
     border: 1px solid #444;
     color: #4d4c4c;
-    position: relative;
-    padding-right: 70px;
+    position: relative; 
     transition: all 0.6s ease; /* Smooth text color transition */
 }
 
