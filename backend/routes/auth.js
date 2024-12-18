@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require('../models/User'); // Import User model
 
 // Route to handle user signup
-router.post('/signup', async (req, res) => {
+/* router.post('/signup', async (req, res) => {
     try {
         const {
             firstName,
@@ -46,7 +46,7 @@ router.post('/signup', async (req, res) => {
         console.error('Error saving user:', error);
         res.status(500).json({ message: 'Server error. Please try again later.' });
     }
-});
+}); */
  
 
 router.post('/signup', signup);
