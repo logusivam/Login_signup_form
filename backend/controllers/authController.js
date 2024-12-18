@@ -37,10 +37,10 @@ exports.signup = async (req, res) => {
             birthday,
             aadhaar,
             email, 
+            password: hashedPassword,  // Save hashed password
             mobile,
             countryCode,
             verificationMethod,
-            password: hashedPassword,  // Save hashed password
             /* otp,
             otpExpires, */
         });
