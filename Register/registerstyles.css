@@ -98,7 +98,6 @@ body {
     background-position: calc(100% - 40px) center; /* Position exclamation icon before the eye icon */
 }
 
-
 /* password alert */
 .is-valid {
     border-color: #28a745; /* Green border for valid input */
