@@ -28,8 +28,8 @@ exports.signup = async (req, res) => {
         if (userExists) return res.status(400).json({ message: 'User already exists' });
 
         // Generate OTP
-        const otp = generateOTP();
-        const otpExpires = new Date(Date.now() + 10 * 60 * 1000); // Expires in 10 minutes
+        /* const otp = generateOTP();
+        const otpExpires = new Date(Date.now() + 10 * 60 * 1000); */ // Expires in 10 minutes
 
         // Hash Password with bcrypt
         const hashedPassword = await bcrypt.hash(password, 10);
