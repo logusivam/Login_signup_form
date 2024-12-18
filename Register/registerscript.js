@@ -1,14 +1,32 @@
 //country list 
 document.addEventListener('DOMContentLoaded', () => {
+    // Fetch country data from the server
     fetch('/api/countries')
         .then(response => response.json())
         .then(countries => {
             const countrySelect = document.getElementById('country');
+            const countryCodeSelect = document.getElementById('countryCode');
+
+            // Populate Country dropdown
             countries.forEach(country => {
                 const option = document.createElement('option');
-                option.value = country;
-                option.textContent = country;
+                option.value = country.name;
+                option.textContent = country.name;
                 countrySelect.appendChild(option);
+            });
+
+            // Update the Country Code dropdown based on country selection
+            countrySelect.addEventListener('change', (event) => {
+                const selectedCountry = countries.find(
+                    country => country.name === event.target.value
+                );
+                countryCodeSelect.innerHTML = ''; // Clear previous options
+                if (selectedCountry) {
+                    const option = document.createElement('option');
+                    option.value = `+${selectedCountry.code}`;
+                    option.textContent = `+${selectedCountry.code}`;
+                    countryCodeSelect.appendChild(option);
+                }
             });
         })
         .catch(error => console.error('Error fetching countries:', error));
