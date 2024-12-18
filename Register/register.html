@@ -104,6 +104,11 @@
                         <label for="email" class="form-label text-light">Email</label>
                         <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
                     </div>
+                    
+                    <!-- Aadhaar Input Field -->
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="aadhaar" maxlength="14" placeholder="XXXX XXXX XXXX" required oninput="enableVerifyButton()">
+                    </div>
 
                     <!-- CAPS LOCK ALERT -->
                     <div id="emailCapsLockAlert" class="caps-lock-alert"></div> 
