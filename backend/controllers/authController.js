@@ -53,7 +53,7 @@ exports.signup = async (req, res) => {
         await user.save();
 
         // Send OTP to email
-        await sendOTPEmail(email, otp);
+        /* await sendOTPEmail(email, otp); */
 
         res.status(201).json({ message: 'Signup successful! OTP sent to email.' });
     } catch (error) {
@@ -64,7 +64,7 @@ exports.signup = async (req, res) => {
 
 
 // Verify OTP Logic
-exports.verifyOTP = async (req, res) => {
+/* exports.verifyOTP = async (req, res) => {
     const { email, enteredOTP } = req.body;
 
     try {
@@ -84,4 +84,4 @@ exports.verifyOTP = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Error verifying OTP', error });
     }
-};
+}; */
