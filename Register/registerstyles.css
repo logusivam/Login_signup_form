@@ -82,6 +82,21 @@ body {
     color: #fff;
 }
 
+/* Adjust the position of Bootstrap validation icons */
+.form-control.is-valid, .form-control.is-invalid {
+    padding-right: 60px; /* Reserve enough space for both the eye icon and validation icon */
+}
+
+/* Move the validation icon (tick or exclamation) */
+.was-validated .form-control:valid, 
+.form-control.is-valid {
+    background-position: calc(100% - 40px) center; /* Position tick icon before the eye icon */
+}
+
+.was-validated .form-control:invalid, 
+.form-control.is-invalid {
+    background-position: calc(100% - 40px) center; /* Position exclamation icon before the eye icon */
+}
 
 
 /* password alert */
