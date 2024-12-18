@@ -39,9 +39,10 @@ exports.signup = async (req, res) => {
             email, 
             mobile,
             countryCode,
+            verificationMethod,
             password: hashedPassword,  // Save hashed password
-            otp,
-            otpExpires,
+            /* otp,
+            otpExpires, */
         });
 
         await user.save();
