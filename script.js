@@ -111,6 +111,8 @@ loginForm.addEventListener('submit', async (event) => {
         document.getElementById('message').textContent = 'Something went wrong. Please try again.';
     }
 });
+
+//secure token automatically
 const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 if (token) {
     fetch('http://localhost:5000/api/auth/protected', {
@@ -123,6 +125,16 @@ if (token) {
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
 }
+//to check auto-login
+document.addEventListener('DOMContentLoaded', () => {
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+
+    if (token) {
+        console.log('User is already logged in');
+        window.location.href = 'https://github.com/logusivam'; // Redirect or perform any action
+    }
+});
+
 /* login-form ends */
  
 
