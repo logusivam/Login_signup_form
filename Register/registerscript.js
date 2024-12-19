@@ -361,9 +361,9 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
      // Check if terms and conditions are agreed
      const agreeTerms = document.getElementById('agreeTerms').checked;
      if (!agreeTerms) {
-         alert('Please agree to the Terms and Conditions to proceed.');
-         return; // Stop the function here
-     }
+        messageContainer.innerHTML = `<div class="text-danger mt-2">Please agree to the Terms and Conditions to proceed.</div>`;
+        return; // Stop the function here
+    }
 
     // Capture form data
     const formData = {
