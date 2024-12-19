@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     receiveRecommEmails: { type: Boolean, default: false }, */
 }, { timestamps: true });
 
-module.exports = mongoose.model('User', userSchema);
+/* module.exports = mongoose.model('User', userSchema);
 
 const otpSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
@@ -25,4 +25,4 @@ const otpSchema = new mongoose.Schema({
 
 const OTP = mongoose.model('OTP', otpSchema);
 
-module.exports = OTP;
+module.exports = OTP; */
