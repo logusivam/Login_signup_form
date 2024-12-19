@@ -27,6 +27,46 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional: shadow for extra effect */
 }
 
+
+/* Circle in the top-left corner */
+.sign-up-form::after {
+    content: '';
+    position: absolute;
+    top: -50px; /* Move the circle up */
+    left: -50px; /* Move the circle to the left */
+    width: 120px;
+    height: 120px;
+    background-color: rgba(100, 150, 255, 0.3); /* Change color if needed */
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Circle in the bottom-right corner */
+.sign-up-form .circle-bottom-right {
+    content: '';
+    position: absolute;
+    bottom: -50px; /* Move the circle down */
+    right: -50px; /* Move the circle to the right */
+    width: 120px;
+    height: 120px;
+    background-color: rgba(150, 255, 100, 0.3); /* Change color if needed */
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Circle in the bottom-left corner */
+.sign-up-form .circle-bottom-left {
+    content: '';
+    position: absolute;
+    bottom: -50px; /* Move the circle down */
+    left: -50px; /* Move the circle to the left */
+    width: 120px;
+    height: 120px;
+    background-color: rgba(255, 200, 50, 0.3); /* Change color if needed */
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
 /* Centering the container */
 .container {
     margin-top: 100px;
