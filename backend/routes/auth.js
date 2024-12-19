@@ -114,12 +114,12 @@ router.post('/verify-otp', async (req, res) => {
 });
  */
 
-// login route
-
-router.post('/login', loginUser);
-
 
 router.post('/signup', signup);
 /* router.post('/verify-otp', verifyOTP); */
+
+// login route
+
+router.post('/login', loginUser);
 
 module.exports = router;
