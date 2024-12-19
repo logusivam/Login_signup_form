@@ -252,6 +252,7 @@ body {
     clip-path: polygon(100% 50%, 0 0, 0 100%);
     transition: all 0.4s ease-in-out; 
     visibility: hidden;
+    z-index: 3;
 }
 
 /* Focus Effect on Input */
