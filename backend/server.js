@@ -11,12 +11,17 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const path = require('path'); // Add this to handle file paths
 
-// Serve static files from the 'Register' directory
+// Serve static files (styles, scripts, HTML)
 app.use(express.static(path.join(__dirname, '../Register')));
+app.use(express.static(path.join(__dirname, '../')));
 
-// Serve static index.html for undefined routes
+// Routes for Pages
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../Register/register.html'));
+});
+
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, '../index.html'));
 });
 
 
