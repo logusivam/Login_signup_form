@@ -92,7 +92,7 @@ const loginForm = document.getElementById('loginForm');
             if (response.ok) {
                 document.getElementById('message').textContent = result.message;
                 // Redirect to another page on successful login
-                window.location.href = 'welcome.html';
+                window.location.href = 'https://github.com/logusivam';
             } else {
                 document.getElementById('message').textContent = result.message;
             }
