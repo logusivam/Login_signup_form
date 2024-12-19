@@ -393,16 +393,18 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
 
         const result = await response.json();
 
-        if (response.ok) {
-            alert('User registered successfully!');
-            // Redirect to the desired page after successful signup
-            window.location.href = 'https://logusivam.github.io/admin_dashboard/'; // Change this to the page URL
-
-        } else {
-            alert(`Error: ${result.message}`);
+        if (response.ok) {  /* alert('User registered successfully!'); */
+            messageContainer.innerHTML = `<div class="text-success mt-2">User registered successfully!</div>`;
+            // Redirect to the admin/index.html page after a short delay
+            setTimeout(() => {
+                window.location.href = 'https://logusivam.github.io/admin_dashboard/'; // Change this to the page URL
+            }, 2000);
+        } else {/* alert(`Error: ${result.message}`); */
+            messageContainer.innerHTML = `<div class="text-danger mt-2">Error: ${result.message}</div>`;
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Something went wrong. Please try again.');
+        /* alert('Something went wrong. Please try again.'); */
+        messageContainer.innerHTML = `<div class="text-danger mt-2">Something went wrong. Please try again.</div>`;
     }
 });
