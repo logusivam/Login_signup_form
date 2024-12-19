@@ -95,13 +95,13 @@
                     </div>
                     
 
-                    <div class="mb-3 d-flex align-items-center">
-                        <label for="email" class="form-label text-light mb-0 me-3">Email</label>
+                    <div class="mb-3 d-flex align-items-center  flex-wrap">
+                        <label for="email" class="form-label text-light mb-0 me-2">Email</label>
                         <!-- Verify Button -->
                         <button class="btn btn-primary" type="button" id="verifyMail" disabled>Verify</button> 
                     </div>
                     <div class="mb-3">
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        <input type="email" class="form-control me-2" id="email" placeholder="Enter your email" required>
                     </div>
 
                     <!-- CAPS LOCK ALERT -->
@@ -109,13 +109,14 @@
 
                     <!-- OTP Section -->
                     <div id="otpSection" class="mt-3" style="display: none;">
-                        <label for="otpInput" class="form-label">Enter OTP:</label>
-                        <div class="d-flex align-items-center">
-                            <input type="text" id="otpInput" class="form-control me-3" placeholder="Enter OTP" style="max-width: 200px;">
-                            <button class="btn btn-success" id="submitOtp">Submit OTP</button>
-                            <button class="btn btn-warning ms-2" id="resendOtp">Resend OTP</button>
+                        <div class="d-flex align-items-center flex-wrap">
+                            <!-- OTP Input -->
+                            <input type="text" id="otpInput" class="form-control me-2" placeholder="Enter OTP" style="max-width: 150px;" />
+                            <!-- Submit Button -->
+                            <button class="btn btn-success me-2" id="submitOtp" type="button">Submit</button>
+                            <!-- Resend OTP Button -->
+                            <button class="btn btn-warning" id="resendOtp" type="button">Resend OTP</button>
                         </div>
-                        <div id="otpMessage" class="mt-2"></div>
                     </div>
 
                     <div class="mb-3 position-relative">
