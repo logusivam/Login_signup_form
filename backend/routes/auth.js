@@ -1,10 +1,10 @@
 const express = require('express');
 const { signup } = require('../controllers/authController');
-const { logi } = require('../controllers/authController');
+const { loginUser } = require('../controllers/authController');
 const router = express.Router();
 const OTP = require('../models/User'); // OTP schema
 //const { sendOtpEmail } = require('../utils/otp');
-const User = require('../models/User');  //Import User model
+ //const User = require('../models/User'); Import User model
 
 // Route to handle user signup
 /* router.post('/signup', async (req, res) => {
@@ -114,7 +114,9 @@ router.post('/verify-otp', async (req, res) => {
 });
  */
 
+// login route
 
+router.post('\login', loginUser);
 
 
 router.post('/signup', signup);

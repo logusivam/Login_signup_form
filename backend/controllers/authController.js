@@ -62,22 +62,33 @@ exports.signup = async (req, res) => {
     }
 };
 
-// Login route
-router.post('/login', async (req, res) => {
+// Login Controller
+const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
-    // Check if the user exists and password matches
-    const user = await User.findOne({ email });
-    if (!user) {
-        return res.status(400).json({ message: 'Invalid credentials.' });
-    }
+    try {
+        // Check if the user exists
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ message: 'Invalid credentials.' });
+        }
 
-    if (user.password !== password) {
-        return res.status(400).json({ message: 'Invalid credentials.' });
-    }
+        // Check if the password matches
+        if (user.password !== password) {
+            return res.status(400).json({ message: 'Invalid credentials.' });
+        }
 
-    return res.status(200).json({ message: 'Login successful', user });
-});
+        // Return success response
+        return res.status(200).json({ message: 'Login successful', user });
+    } catch (error) {
+        console.error('Login error:', error);
+        return res.status(500).json({ message: 'Internal server error.' });
+    }
+};
+
+module.exports = {
+    loginUser
+};
 
 
 // Verify OTP Logic
