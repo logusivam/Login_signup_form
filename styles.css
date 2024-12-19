@@ -6,21 +6,21 @@ body {
 }
 
 /* Login Container Styling */
-/* .login-container {
+.login-container {
     width: 100%;
-    max-width: 500px; /* Default width for smaller screens 
+    max-width: 500px; /* Default width for smaller screens */
     background-color: #1e1e1e;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
     transition: width 0.3s ease;
-} */
+}
 
 /* login container animation */
 /* Cat */
 .cat {
     position: relative;
-    height: 0px;
-    width: 192.1px;
+    height: 100px;
+    width: 120px; 
 }
 
 /* Ears */
@@ -198,22 +198,7 @@ body {
     transform: translateX(-50%);
     border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
 }
-
-/* Login Container Styling */
-.login-container {
-    width: 100%;
-    max-width: 500px;
-    background-color: #1e1e1e;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
-    transition: width 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+ 
 
 /* Place cat in the center of login container */
 .cat {
@@ -238,6 +223,7 @@ body {
     color: #4d4c4c; /* Initially placeholder text */
     position: relative;
     padding-right: 40px;
+    z-index: 2;
     transition: all 0.8s ease-in-out; /* Smooth text color transition */
 }
 
@@ -276,6 +262,7 @@ body {
     height: 100%;
     background: yellow;
     opacity: 0.5;
+    z-index: 3;
     clip-path: polygon(100% 50%, 0 0, 0 100%);
     transition: all 0.4s ease-in-out; 
     visibility: hidden;
