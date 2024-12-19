@@ -263,7 +263,7 @@ body {
     #submitOtp,
     #resendOtp {
         width: 30%; /* Full width for mobile */
-        margin-top: 0px;
+        margin-top: -2px;
     }
 }
 
