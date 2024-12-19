@@ -65,7 +65,7 @@ exports.signup = async (req, res) => {
 
 // Login Logic
 exports.loginUser = async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, keepSignedIn } = req.body; // Added keepSignedIn flag
 
     if (!email || !password) {
         return res.status(400).json({ message: 'Email and password are required.' });
@@ -84,9 +84,16 @@ exports.loginUser = async (req, res) => {
             return res.status(400).json({ message: 'Invalid credentials.' });
         }
 
-        // Return success response with user data
+        // Generate JWT Token
+        const token = jwt.sign(
+            { id: user._id, email: user.email }, 
+            process.env.JWT_SECRET, 
+            { expiresIn: keepSignedIn ? '7d' : '1h' } // Token expiry: 7 days if "keep me signed in" is checked
+        );
+
         return res.status(200).json({
             message: 'Login successful',
+            token: token, // Return token to client
             user: { 
                 email: user.email,
                 firstName: user.firstName,
