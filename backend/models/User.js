@@ -15,9 +15,16 @@ const userSchema = new mongoose.Schema({
     receiveRecommEmails: { type: Boolean, default: false }, */
 }, { timestamps: true });
 
-/* module.exports = mongoose.model('User', userSchema);
+const userSchema1 = new mongoose.Schema({
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true }
+});
 
-const otpSchema = new mongoose.Schema({
+
+
+ module.exports = mongoose.model('User', userSchema);
+
+/*const otpSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     otp: { type: String, required: true },
     expiresAt: { type: Date, required: true },
