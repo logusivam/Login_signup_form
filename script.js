@@ -111,7 +111,18 @@ loginForm.addEventListener('submit', async (event) => {
         document.getElementById('message').textContent = 'Something went wrong. Please try again.';
     }
 });
-
+const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+if (token) {
+    fetch('http://localhost:5000/api/auth/protected', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+}
 /* login-form ends */
  
 
