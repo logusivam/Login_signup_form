@@ -124,6 +124,31 @@ verifyButton.addEventListener('click', async () => {
     }
 });
 
+// Handle Submit OTP Button
+document.getElementById('submitOtp').addEventListener('click', async () => {
+    const email = document.getElementById('email').value;
+    const otp = document.getElementById('otpInput').value;
+
+    try {
+        const response = await fetch('http://localhost:5000/api/auth/verify-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, otp }),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            document.getElementById('otpSection').style.display = 'none';
+            document.getElementById('otpMessage').textContent = 'OTP Verified Successfully!';
+            verifyButton.disabled = true;
+        } else {
+            document.getElementById('otpMessage').textContent = result.message;
+        }
+    } catch (error) {
+        console.error(error);
+        alert('Error verifying OTP.');
+    }
+});
 
 
 // Handle Submit OTP Button
