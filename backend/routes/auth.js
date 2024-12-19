@@ -120,6 +120,7 @@ router.post('/signup', signup);
 
 // login route
 
+console.log("loginUser function:", loginUser); // Check if it's defined
 router.post('/login', loginUser);
 
 module.exports = router;
