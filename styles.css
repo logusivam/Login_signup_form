@@ -16,7 +16,25 @@ body {
 }
 
 /* login container animation */
-
+.square{
+    height: 100px;
+    width: 100px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -47% 0 0 -47%;
+  }
+  
+  .black{ 
+    background: black;  
+    animation: rotate 10s infinite linear; 
+  }
+  
+  @keyframes rotate{
+    0%{ transform: rotate(0deg); }
+      100%{ transform: rotate(360deg); }	
+  }
 
 
 /* Wider Login Container for Larger Screens */
