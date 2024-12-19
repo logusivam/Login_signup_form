@@ -69,6 +69,8 @@ function enableVerifyButton() {
     }
 }
 
+
+
 //validate password
 function validatePassword() {
     const passwordInput = document.getElementById("password");
