@@ -1,6 +1,5 @@
 const express = require('express');
-const { signup } = require('../controllers/authController');
-const { loginUser } = require('../controllers/authController');
+const { signup, loginUser } = require('../controllers/authController'); 
 const router = express.Router();
 const OTP = require('../models/User'); // OTP schema
 //const { sendOtpEmail } = require('../utils/otp');

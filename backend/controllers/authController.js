@@ -62,8 +62,8 @@ exports.signup = async (req, res) => {
     }
 };
 
-// Login Controller
-const loginUser = async (req, res) => {
+// Login Logic
+exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -78,17 +78,10 @@ const loginUser = async (req, res) => {
         }
 
         // Check if the password matches
-        const isPasswordMatch = await user.matchPassword(password);
+        const isPasswordMatch = await bcrypt.compare(password, user.password);
         if (!isPasswordMatch) {
             return res.status(400).json({ message: 'Invalid credentials.' });
         }
-
-        /* // Generate a JWT token for the user (optional but recommended for security)
-        const token = jwt.sign(
-            { userId: user._id, email: user.email },
-            process.env.JWT_SECRET,
-            { expiresIn: '1h' }  // Token expires in 1 hour
-        ); */
 
         // Return success response with user data
         return res.status(200).json({
@@ -105,10 +98,6 @@ const loginUser = async (req, res) => {
     }
 };
 
-
-module.exports = {
-    loginUser
-};
 
 
 // Verify OTP Logic
