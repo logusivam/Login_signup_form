@@ -105,7 +105,9 @@ loginForm.addEventListener('submit', async (event) => {
         const result = await response.json();
 
         if (response.ok) {
-            document.getElementById('message').textContent = result.message;
+             // Success: display green message
+             messageElement.textContent = result.message;
+             messageElement.style.color = 'green'; // Success color
 
             // Store the JWT token
             if (keepSignedIn) {
@@ -117,11 +119,14 @@ loginForm.addEventListener('submit', async (event) => {
             // Redirect to another page on successful login
             window.location.href = 'https://github.com/logusivam';
         } else {
-            document.getElementById('message').textContent = result.message;
+            // Failure: display red message
+            messageElement.textContent = result.message;
+            messageElement.style.color = 'red'; // Failure color
         }
     } catch (error) {
         console.error('Error:', error);
-        document.getElementById('message').textContent = 'Something went wrong. Please try again.';
+        messageElement.textContent = 'Something went wrong. Please try again.';
+        messageElement.style.color = 'red'; // Failure color
     }
 });
 
