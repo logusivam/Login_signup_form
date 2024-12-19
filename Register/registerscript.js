@@ -85,7 +85,7 @@ emailInput.addEventListener("input", () => {
     verifyButton.disabled = !emailRegex.test(emailInput.value);
 });
 
-// Handle Verify Button Click
+/* // Handle Verify Button Click
 verifyButton.addEventListener("click", () => {
     generatedOtp = Math.floor(1000 + Math.random() * 9000).toString(); // Generate OTP
     localStorage.setItem("otp", generatedOtp); // Store in localStorage
@@ -94,6 +94,34 @@ verifyButton.addEventListener("click", () => {
     otpSection.style.display = "block"; // Show OTP section
     otpMessage.style.display = "none"; // Hide previous messages
     otpMessage.textContent = "";
+}); */
+
+verifyButton.addEventListener('click', async () => {
+    const email = document.getElementById('email').value;
+
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+        alert('Please enter a valid email.');
+        return;
+    }
+
+    try {
+        const response = await fetch('http://localhost:5000/api/auth/send-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            document.getElementById('otpSection').style.display = 'block';
+            console.log(result.message);
+        } else {
+            alert(result.message);
+        }
+    } catch (error) {
+        console.error(error);
+        alert('Error sending OTP.');
+    }
 });
 
 // Handle Submit OTP Button
