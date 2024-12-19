@@ -102,19 +102,26 @@ submitOtpButton.addEventListener("click", () => {
     const storedOtp = localStorage.getItem("otp");
 
     if (enteredOtp === storedOtp) {
-        otpSection.style.display = "none"; // Hide OTP section
+        // Hide OTP section
+        otpSection.style.display = "none";
+
+        // Show success message
         otpMessage.textContent = "OTP Verified Successfully!";
-        otpMessage.classList.remove("text-danger");
+        otpMessage.classList.remove("text-danger", "text-warning");
         otpMessage.classList.add("text-success");
         otpMessage.style.display = "block";
 
         localStorage.removeItem("otp"); // Clear OTP
     } else {
+        // Show error message
         otpMessage.textContent = "Invalid OTP. Please try again.";
-        otpMessage.classList.remove("text-success");
+        otpMessage.classList.remove("text-success", "text-warning");
         otpMessage.classList.add("text-danger");
         otpMessage.style.display = "block";
     }
+
+    // Clear OTP input field
+    otpInput.value = "";
 });
 
 // Handle Resend OTP Button
@@ -123,11 +130,16 @@ resendOtpButton.addEventListener("click", () => {
     localStorage.setItem("otp", generatedOtp); // Update localStorage
     console.log("New OTP:", generatedOtp);
 
+    // Update message
     otpMessage.textContent = "A new OTP has been sent to your email.";
-    otpMessage.classList.remove("text-danger");
+    otpMessage.classList.remove("text-success", "text-danger");
     otpMessage.classList.add("text-warning");
     otpMessage.style.display = "block";
+
+    // Clear OTP input field
+    otpInput.value = "";
 });
+
 
 
 //validate password
