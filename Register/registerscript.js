@@ -112,7 +112,7 @@ document.getElementById("submitOtp").addEventListener("click", () => {
         // Hide OTP Section
         document.getElementById("otpSection").style.display = "none";
         // Show OTP Section
-        document.getElementById("otpSection").style.display = "block";
+        document.getElementById("otpMessage").style.display = "block";
     } else {
         otpMessage.innerHTML = `<span class="text-danger">Invalid OTP. Please try again.</span>`;
     }
