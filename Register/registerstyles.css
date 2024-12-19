@@ -243,21 +243,21 @@ body {
         align-items: flex-start; /* Align items to the left */
     }
 
-    #verifyMail,
+    /* #verifyMail, */
     #otpInput,
     #submitOtp,
     #resendOtp {
-        width: 20%; /* Make buttons and inputs full width */
+        width: 100%; /* Make buttons and inputs full width */
         margin-top: 5px; /* Add some spacing */
     }
 }
 
 @media (max-width: 576px) { /* Mobile Mode */
-    #verifyMail,
+    /* #verifyMail, */
     #otpInput,
     #submitOtp,
     #resendOtp {
-        width: 20%; /* Full width for mobile */
+        width: 100%; /* Full width for mobile */
         margin-top: 5px;
     }
 }
