@@ -239,7 +239,7 @@ body {
 /* Responsive Buttons and Input Fields */
 @media (max-width: 768px) { /* Tablet Mode */
     .d-flex.align-items-center {
-        flex-direction: column; /* Stack vertically */
+        flex-direction: row; /* Stack vertically */
         align-items: flex-start; /* Align items to the left */
     }
 
