@@ -239,7 +239,7 @@ body {
 /* Responsive Buttons and Input Fields */
 @media (max-width: 768px) { /* Tablet Mode */
     .d-flex.align-items-center {
-        flex-direction: row; /* Stack vertically */
+        flex-direction: row; /* Stack horizontally */
         align-items: flex-start; /* Align items to the left */
     }
 
@@ -247,7 +247,7 @@ body {
     #otpInput,
     #submitOtp,
     #resendOtp {
-        width: 750%; /* Make buttons and inputs full width */
+        width: 50%; /* Make buttons and inputs full width */
         margin-top: 5px; /* Add some spacing */
     }
 }
