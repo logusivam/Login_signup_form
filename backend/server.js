@@ -13,13 +13,13 @@ const path = require('path'); // Add this to handle file paths
 
 // Serve static files (styles, scripts, HTML)
 app.use(express.static(path.join(__dirname, '../Register')));
-app.use(express.static(path.join(__dirname, '../')));
-
 // Routes for Pages
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../Register/register.html'));
 });
 
+
+app.use(express.static(path.join(__dirname, '../')));
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'));
 });
