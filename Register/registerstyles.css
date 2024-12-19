@@ -11,6 +11,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
     transition: width 0.3s ease;
+    overflow: hidden;
     position: relative; /* Ensure the container is positioned for absolute positioning of the circle */
 }
 
@@ -18,10 +19,10 @@ body {
     content: '';
     position: absolute;
     top: -20px; /* Position the circle at the top corner */
-    right: -10px; /* Position the circle at the right corner */
-    width: 100px; /* Width of the circle */
+    right: -20px; /* Position the circle at the right corner */
+    width: 200px; /* Width of the circle */
     height: 100px; /* Height of the circle */
-    background-color: rgba(103, 255, 100, 0.3); /* A soft, semi-transparent color */
+    background-color: rgba(103, 255, 100, 0.1); /* A soft, semi-transparent color */
     border-radius: 50%; /* Make it a circle */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional: shadow for extra effect */
 }
