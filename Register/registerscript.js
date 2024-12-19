@@ -300,13 +300,14 @@ function handleCapsLock(event, inputId, alertId) {
     }
 }
 
+
+/* const emailInput = document.getElementById("email"); */
 // Safeguard: Add event listeners only if elements exist 
 if (emailInput) {
     emailInput.addEventListener("keydown", function(event) {
         handleCapsLock(event, "email", "emailCapsLockAlert");
     });
 }
- 
 if (passwordInput) {
     passwordInput.addEventListener("keydown", function(event) {
         handleCapsLock(event, "password", "passwordCapsLockAlert");
