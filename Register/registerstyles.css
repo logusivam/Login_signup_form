@@ -260,11 +260,6 @@ body {
         width: 100%; /* Full width for mobile */
         margin-top: 5px;
     }
-
-    label.form-label {
-        width: 100%;
-        margin-bottom: 5px; /* Adjust label spacing */
-    }
 }
 
 
