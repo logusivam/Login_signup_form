@@ -12,10 +12,33 @@ body {
     background-color: #1e1e1e;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
-    transition: width 0.3s ease;
+    transition: width 0.3s ease;position: relative; /* Required to position the pseudo-elements */
+    overflow: hidden; /* Ensures that the circles do not overflow the container */
 }
 
-/* login container animation */
+/* Add circles with low opacity on all four sides */
+.login-container::before,
+.login-container::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.2); /* Low opacity white circle */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.login-container::before {
+    top: -30%;
+    left: -30%;
+    width: 200px;
+    height: 200px;
+}
+
+.login-container::after {
+    bottom: -30%;
+    right: -30%;
+    width: 200px;
+    height: 200px;
+}
 
 
 
