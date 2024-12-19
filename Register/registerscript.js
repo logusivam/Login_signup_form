@@ -69,57 +69,64 @@ function enableVerifyButton() {
     }
 }
 
-document.getElementById("email").addEventListener("input", () => {
-    const emailInput = document.getElementById("email").value;
-    const verifyButton = document.getElementById("verifyMail");
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Email validation regex
+const otpSection = document.getElementById("otpSection");
+const otpMessage = document.getElementById("otpMessage");
+const emailInput = document.getElementById("email");
+const verifyButton = document.getElementById("verifyMail");
+const otpInput = document.getElementById("otpInput");
+const submitOtpButton = document.getElementById("submitOtp");
+const resendOtpButton = document.getElementById("resendOtp");
 
-    // Enable Verify button only if email format is correct
-    if (emailRegex.test(emailInput)) {
-        verifyButton.disabled = false;
-    } else {
-        verifyButton.disabled = true;
-    }
+let generatedOtp = ""; // To store OTP
+
+// Enable Verify button if email is valid
+emailInput.addEventListener("input", () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    verifyButton.disabled = !emailRegex.test(emailInput.value);
 });
 
 // Handle Verify Button Click
-document.getElementById("verifyMail").addEventListener("click", () => {
-    // Mock OTP generation and save to localStorage
-    const otp = Math.floor(1000 + Math.random() * 9000);
-    localStorage.setItem("otp", otp);
-    console.log("Generated OTP:", otp); // Log OTP for testing purposes
+verifyButton.addEventListener("click", () => {
+    generatedOtp = Math.floor(1000 + Math.random() * 9000).toString(); // Generate OTP
+    localStorage.setItem("otp", generatedOtp); // Store in localStorage
+    console.log("Generated OTP:", generatedOtp);
 
-    // Show OTP Section
-    document.getElementById("otpSection").style.display = "block";
-    alert("An OTP has been sent to your email.");
+    otpSection.style.display = "block"; // Show OTP section
+    otpMessage.style.display = "none"; // Hide previous messages
+    otpMessage.textContent = "";
 });
 
 // Handle Submit OTP Button
-document.getElementById("submitOtp").addEventListener("click", () => {
-    const enteredOtp = document.getElementById("otpInput").value;
+submitOtpButton.addEventListener("click", () => {
+    const enteredOtp = otpInput.value;
     const storedOtp = localStorage.getItem("otp");
 
     if (enteredOtp === storedOtp) {
-        alert("OTP Verified Successfully!");
+        otpSection.style.display = "none"; // Hide OTP section
+        otpMessage.textContent = "OTP Verified Successfully!";
+        otpMessage.classList.remove("text-danger");
+        otpMessage.classList.add("text-success");
+        otpMessage.style.display = "block";
 
-        // Clear OTP from localStorage
-        localStorage.removeItem("otp");
-
-        // Hide OTP Section
-        document.getElementById("otpSection").style.display = "none";
+        localStorage.removeItem("otp"); // Clear OTP
     } else {
-        alert("Invalid OTP. Please try again.");
+        otpMessage.textContent = "Invalid OTP. Please try again.";
+        otpMessage.classList.remove("text-success");
+        otpMessage.classList.add("text-danger");
+        otpMessage.style.display = "block";
     }
 });
 
 // Handle Resend OTP Button
-document.getElementById("resendOtp").addEventListener("click", () => {
-    // Mock new OTP generation
-    const newOtp = Math.floor(1000 + Math.random() * 9000);
-    localStorage.setItem("otp", newOtp);
-    console.log("New OTP:", newOtp); // Log for testing purposes
+resendOtpButton.addEventListener("click", () => {
+    generatedOtp = Math.floor(1000 + Math.random() * 9000).toString(); // Generate new OTP
+    localStorage.setItem("otp", generatedOtp); // Update localStorage
+    console.log("New OTP:", generatedOtp);
 
-    alert("A new OTP has been sent to your email.");
+    otpMessage.textContent = "A new OTP has been sent to your email.";
+    otpMessage.classList.remove("text-danger");
+    otpMessage.classList.add("text-warning");
+    otpMessage.style.display = "block";
 });
 
 
