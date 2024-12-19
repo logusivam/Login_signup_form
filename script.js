@@ -73,30 +73,45 @@ document.getElementById("password").addEventListener("keydown", function(event) 
 
 const loginForm = document.getElementById('loginForm');
 
-        loginForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
+loginForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const keepSignedIn = document.getElementById('keepSignedIn').checked; // Check "Keep Me Signed In"
 
-            const response = await fetch('http://localhost:5000/api/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                document.getElementById('message').textContent = result.message;
-                // Redirect to another page on successful login
-                window.location.href = 'https://github.com/logusivam';
-            } else {
-                document.getElementById('message').textContent = result.message;
-            }
+    try {
+        const response = await fetch('http://localhost:5000/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password, keepSignedIn }),
         });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            document.getElementById('message').textContent = result.message;
+
+            // Store the JWT token
+            if (keepSignedIn) {
+                localStorage.setItem('token', result.token); // Store in localStorage for persistent login
+            } else {
+                sessionStorage.setItem('token', result.token); // Store in sessionStorage for temporary login
+            }
+
+            // Redirect to another page on successful login
+            window.location.href = 'https://github.com/logusivam';
+        } else {
+            document.getElementById('message').textContent = result.message;
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('message').textContent = 'Something went wrong. Please try again.';
+    }
+});
+
 /* login-form ends */
  
 
