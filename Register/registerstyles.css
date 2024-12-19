@@ -236,6 +236,38 @@ body {
     }
 }
 
+/* Responsive Buttons and Input Fields */
+@media (max-width: 768px) { /* Tablet Mode */
+    .d-flex.align-items-center {
+        flex-direction: column; /* Stack vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    #verifyMail,
+    #otpInput,
+    #submitOtp,
+    #resendOtp {
+        width: 100%; /* Make buttons and inputs full width */
+        margin-top: 5px; /* Add some spacing */
+    }
+}
+
+@media (max-width: 576px) { /* Mobile Mode */
+    #verifyMail,
+    #otpInput,
+    #submitOtp,
+    #resendOtp {
+        width: 100%; /* Full width for mobile */
+        margin-top: 5px;
+    }
+
+    label.form-label {
+        width: 100%;
+        margin-bottom: 5px; /* Adjust label spacing */
+    }
+}
+
+
 /* login redirect */
 .textlogin
 {
