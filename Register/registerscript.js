@@ -52,7 +52,7 @@ aadhaarInput.addEventListener("input", function (e) {
 });
 
 //aadhaar verify button
-function enableVerifyButton() {
+/* function enableVerifyButton() {
     const aadhaarInput = document.getElementById('aadhaar');
     const verifyButton = document.getElementById('verifyAadhaar');
 
@@ -67,9 +67,9 @@ function enableVerifyButton() {
         verifyButton.disabled = true;   // Disable button
         verifyButton.style.cursor = "not-allowed";  // Show disabled cursor
     }
-}
+} */
 
-const otpSection = document.getElementById("otpSection");
+/* const otpSection = document.getElementById("otpSection");
 const otpMessage = document.getElementById("otpMessage");
 const emailInput = document.getElementById("email");
 const verifyButton = document.getElementById("verifyMail");
@@ -77,10 +77,10 @@ const otpInput = document.getElementById("otpInput");
 const submitOtpButton = document.getElementById("submitOtp");
 const resendOtpButton = document.getElementById("resendOtp");
 
-let generatedOtp = ""; // To store OTP
+let generatedOtp = ""; */ // To store OTP
 
 // Enable Verify button if email is valid
-emailInput.addEventListener("input", () => {
+/* emailInput.addEventListener("input", () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     verifyButton.disabled = !emailRegex.test(emailInput.value);
 });
@@ -94,7 +94,7 @@ verifyButton.addEventListener("click", () => {
     otpSection.style.display = "block"; // Show OTP section
     otpMessage.style.display = "none"; // Hide previous messages
     otpMessage.textContent = "";
-});
+}); */
 
 //send password through gmail
 /* verifyButton.addEventListener('click', async () => {
@@ -155,7 +155,7 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
 
 
 // Handle Submit OTP Button
-submitOtpButton.addEventListener("click", () => {
+/* submitOtpButton.addEventListener("click", () => {
     const enteredOtp = otpInput.value;
     const storedOtp = localStorage.getItem("otp");
 
@@ -200,7 +200,7 @@ resendOtpButton.addEventListener("click", () => {
     // Clear OTP input field
     otpInput.value = "";
 });
-
+ */
 
 
 //validate password
