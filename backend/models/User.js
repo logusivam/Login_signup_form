@@ -15,10 +15,10 @@ const userSchema = new mongoose.Schema({
     receiveRecommEmails: { type: Boolean, default: false }, */
 }, { timestamps: true });
 
-const userSchema1 = new mongoose.Schema({
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
-});
+// Method to compare passwords
+userSchema.methods.matchPassword = async function(enteredPassword) {
+    return await bcrypt.compare(enteredPassword, this.password);
+};
 
 
 

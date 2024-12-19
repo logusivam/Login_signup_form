@@ -116,7 +116,7 @@ router.post('/verify-otp', async (req, res) => {
 
 // login route
 
-router.post('\login', loginUser);
+router.post('/login', loginUser);
 
 
 router.post('/signup', signup);

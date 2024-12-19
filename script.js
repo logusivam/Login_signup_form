@@ -1,4 +1,4 @@
-/* login-form starts */
+/* /* login-form starts 
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -14,7 +14,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         message.style.color = "red";
         message.textContent = "Invalid email or password.";
     }
-});
+}); */
 
 const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("password");
@@ -69,7 +69,34 @@ document.getElementById("email").addEventListener("keydown", function(event) {
 document.getElementById("password").addEventListener("keydown", function(event) {
     handleCapsLock(event, "password", "passwordCapsLockAlert");
 });
-/* login-form ends */
 
-/* sign-up-starts */
+
+const loginForm = document.getElementById('loginForm');
+
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('http://localhost:5000/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                document.getElementById('message').textContent = result.message;
+                // Redirect to another page on successful login
+                window.location.href = 'welcome.html';
+            } else {
+                document.getElementById('message').textContent = result.message;
+            }
+        });
+/* login-form ends */
+ 
 
