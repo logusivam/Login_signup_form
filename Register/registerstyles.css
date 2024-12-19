@@ -239,33 +239,34 @@ body {
 /* Responsive Buttons and Input Fields */
 @media (max-width: 768px) { /* Tablet Mode */
     .d-flex.align-items-center {
-        flex-direction: row; /* Stack horizontally */
+        flex-direction: column; /* Stack vertically */
         align-items: flex-start; /* Align items to the left */
     }
 
-    /* #verifyMail, */
+    #verifyMail,
     #otpInput,
     #submitOtp,
     #resendOtp {
-        width: 30%; /* Make buttons and inputs full width */
-       /* margin-top: 5px;  Add some spacing */
+        width: 100%; /* Make buttons and inputs full width */
+        margin-top: 5px; /* Add some spacing */
     }
 }
 
 @media (max-width: 576px) { /* Mobile Mode */
-    /* #verifyMail, */
-    #otpInput
-    /* #submitOtp,
-    #resendOtp */ {
+    #verifyMail,
+    #otpInput,
+    #submitOtp,
+    #resendOtp {
         width: 100%; /* Full width for mobile */
         margin-top: 5px;
     }
-    #submitOtp,
-    #resendOtp {
-        width: 30%; /* Full width for mobile */
-        margin-top: -2px;
+
+    label.form-label {
+        width: 100%;
+        margin-bottom: 5px; /* Adjust label spacing */
     }
 }
+
 
 
 /* login redirect */
