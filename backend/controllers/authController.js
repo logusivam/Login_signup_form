@@ -90,10 +90,9 @@ const loginUser = async (req, res) => {
             { expiresIn: '1h' }  // Token expires in 1 hour
         ); */
 
-        // Return success response with token
+        // Return success response with user data
         return res.status(200).json({
             message: 'Login successful',
-            /* token, */
             user: { 
                 email: user.email,
                 firstName: user.firstName,
@@ -105,6 +104,7 @@ const loginUser = async (req, res) => {
         return res.status(500).json({ message: 'Internal server error.' });
     }
 };
+
 
 module.exports = {
     loginUser

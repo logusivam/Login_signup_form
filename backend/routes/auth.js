@@ -118,9 +118,7 @@ router.post('/verify-otp', async (req, res) => {
 router.post('/signup', signup);
 /* router.post('/verify-otp', verifyOTP); */
 
-// login route
-
-console.log("loginUser function:", loginUser); // Check if it's defined
+// login route 
 router.post('/login', loginUser);
 
 module.exports = router;
