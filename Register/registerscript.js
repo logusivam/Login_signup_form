@@ -92,10 +92,6 @@ document.getElementById("verifyMail").addEventListener("click", () => {
     // Show OTP Section
     document.getElementById("otpSection").style.display = "block";
     alert("An OTP has been sent to your email.");
-
-     // Display OTP Section
-     otpSection.style.display = "block";
-     otpMessage.innerText = "";
 });
 
 // Handle Submit OTP Button
@@ -104,17 +100,15 @@ document.getElementById("submitOtp").addEventListener("click", () => {
     const storedOtp = localStorage.getItem("otp");
 
     if (enteredOtp === storedOtp) {
-        otpMessage.innerHTML = `<span class="text-success">OTP Verified Successfully!</span>`;
+        alert("OTP Verified Successfully!");
 
         // Clear OTP from localStorage
         localStorage.removeItem("otp");
 
         // Hide OTP Section
         document.getElementById("otpSection").style.display = "none";
-        // Show OTP Section
-        document.getElementById("otpMessage").style.display = "block";
     } else {
-        otpMessage.innerHTML = `<span class="text-danger">Invalid OTP. Please try again.</span>`;
+        alert("Invalid OTP. Please try again.");
     }
 });
 
@@ -126,7 +120,6 @@ document.getElementById("resendOtp").addEventListener("click", () => {
     console.log("New OTP:", newOtp); // Log for testing purposes
 
     alert("A new OTP has been sent to your email.");
-    otpMessage.innerText = "";
 });
 
 
