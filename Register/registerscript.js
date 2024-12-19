@@ -124,8 +124,10 @@ verifyButton.addEventListener('click', async () => {
     }
 });
 
+
+
 // Handle Submit OTP Button
-submitOtpButton.addEventListener("click", () => {
+/* submitOtpButton.addEventListener("click", () => {
     const enteredOtp = otpInput.value;
     const storedOtp = localStorage.getItem("otp");
 
@@ -153,7 +155,7 @@ submitOtpButton.addEventListener("click", () => {
 
     // Clear OTP input field
     otpInput.value = "";
-});
+}); */
 
 // Handle Resend OTP Button
 resendOtpButton.addEventListener("click", () => {
