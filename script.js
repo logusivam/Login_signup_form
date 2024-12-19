@@ -89,7 +89,9 @@ loginForm.addEventListener('submit', async (event) => {
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    const keepSignedIn = document.getElementById('keepSignedIn').checked; // Check "Keep Me Signed In"
+    const keepSignedIn = document.getElementById('keepSignedIn').checked;     // Check "Keep Me Signed In"
+    const messageElement = document.getElementById('message'); // Get the message element
+
 
     try {
         const response = await fetch('http://localhost:5000/api/auth/login', {

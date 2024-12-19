@@ -248,6 +248,19 @@ body {
     text-decoration: underline;  /* Add underline on hover */
 }
 
-/* login-form ends */
+/* Success message style */
+.message-success {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+}
 
-/* sign-up-starts */
+/* Error message style */
+.message-error {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+/* login-form ends */ 
