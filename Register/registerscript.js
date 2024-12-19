@@ -104,7 +104,7 @@ document.getElementById("submitOtp").addEventListener("click", () => {
     const storedOtp = localStorage.getItem("otp");
 
     if (enteredOtp === storedOtp) {
-        alert("OTP Verified Successfully!");
+        otpMessage.innerHTML = `<span class="text-success">OTP Verified Successfully!</span>`;
 
         // Clear OTP from localStorage
         localStorage.removeItem("otp");
@@ -112,7 +112,7 @@ document.getElementById("submitOtp").addEventListener("click", () => {
         // Hide OTP Section
         document.getElementById("otpSection").style.display = "none";
     } else {
-        alert("Invalid OTP. Please try again.");
+        otpMessage.innerHTML = `<span class="text-danger">Invalid OTP. Please try again.</span>`;
     }
 });
 
