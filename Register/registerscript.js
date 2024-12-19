@@ -111,6 +111,9 @@ submitOtpButton.addEventListener("click", () => {
         otpMessage.classList.add("text-success");
         otpMessage.style.display = "block";
 
+        // Disable the Verify button
+        verifyButton.disabled = true;
+
         localStorage.removeItem("otp"); // Clear OTP
     } else {
         // Show error message
