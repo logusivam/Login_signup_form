@@ -254,11 +254,16 @@ body {
 
 @media (max-width: 576px) { /* Mobile Mode */
     /* #verifyMail, */
-    #otpInput,
-    #submitOtp,
-    #resendOtp {
+    #otpInput
+    /* #submitOtp,
+    #resendOtp */ {
         width: 100%; /* Full width for mobile */
         margin-top: 5px;
+    }
+    #submitOtp,
+    #resendOtp {
+        width: 30%; /* Full width for mobile */
+        margin-top: 0px;
     }
 }
 
