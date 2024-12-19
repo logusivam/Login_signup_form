@@ -1,6 +1,8 @@
 const express = require('express');
-const { signup, verifyOTP } = require('../controllers/authController');
+const { signup } = require('../controllers/authController');
 const router = express.Router();
+const OTP = require('../models/User'); // OTP schema
+const { sendOtpEmail } = require('../utils/otp');
 //const User = require('../models/User');  Import User model
 
 // Route to handle user signup
