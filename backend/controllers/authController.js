@@ -66,6 +66,10 @@ exports.signup = async (req, res) => {
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
+    if (!email || !password) {
+        return res.status(400).json({ message: 'Email and password are required.' });
+    }
+
     try {
         // Check if the user exists
         const user = await User.findOne({ email });
@@ -74,12 +78,28 @@ const loginUser = async (req, res) => {
         }
 
         // Check if the password matches
-        if (user.password !== password) {
+        const isPasswordMatch = await user.matchPassword(password);
+        if (!isPasswordMatch) {
             return res.status(400).json({ message: 'Invalid credentials.' });
         }
 
-        // Return success response
-        return res.status(200).json({ message: 'Login successful', user });
+        /* // Generate a JWT token for the user (optional but recommended for security)
+        const token = jwt.sign(
+            { userId: user._id, email: user.email },
+            process.env.JWT_SECRET,
+            { expiresIn: '1h' }  // Token expires in 1 hour
+        ); */
+
+        // Return success response with token
+        return res.status(200).json({
+            message: 'Login successful',
+            token,
+            user: { 
+                email: user.email,
+                firstName: user.firstName,
+                lastName: user.lastName
+            }
+        });
     } catch (error) {
         console.error('Login error:', error);
         return res.status(500).json({ message: 'Internal server error.' });
