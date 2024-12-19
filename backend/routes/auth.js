@@ -49,7 +49,69 @@ const { sendOtpEmail } = require('../utils/otp');
         res.status(500).json({ message: 'Server error. Please try again later.' });
     }
 }); */
- 
+
+// Generate OTP and send to email
+router.post('/send-otp', async (req, res) => {
+    const { email } = req.body;
+
+    if (!email) {
+        return res.status(400).json({ message: 'Email is required.' });
+    }
+
+    try {
+        // Generate 4-digit OTP
+        const otp = Math.floor(1000 + Math.random() * 9000).toString();
+
+        // Set OTP expiration to 5 minutes
+        const expiresAt = new Date(Date.now() + 5 * 60 * 1000);
+
+        // Store OTP in DB (replace existing OTP for the email)
+        await OTP.findOneAndUpdate(
+            { email },
+            { otp, expiresAt },
+            { upsert: true, new: true }
+        );
+
+        // Send OTP via email
+        await sendOtpEmail(email, otp);
+
+        return res.status(200).json({ message: 'OTP sent successfully.' });
+    } catch (error) {
+        console.error('Error:', error);
+        return res.status(500).json({ message: 'Failed to send OTP. Try again.' });
+    }
+});
+
+// Verify OTP
+router.post('/verify-otp', async (req, res) => {
+    const { email, otp } = req.body;
+
+    if (!email || !otp) {
+        return res.status(400).json({ message: 'Email and OTP are required.' });
+    }
+
+    try {
+        const otpRecord = await OTP.findOne({ email });
+
+        if (!otpRecord || otpRecord.otp !== otp) {
+            return res.status(400).json({ message: 'Invalid OTP.' });
+        }
+
+        // Check expiration
+        if (otpRecord.expiresAt < new Date()) {
+            return res.status(400).json({ message: 'OTP expired.' });
+        }
+
+        // Delete OTP record after verification
+        await OTP.deleteOne({ email });
+
+        return res.status(200).json({ message: 'OTP verified successfully.' });
+    } catch (error) {
+        console.error('Error:', error);
+        return res.status(500).json({ message: 'OTP verification failed.' });
+    }
+});
+
 
 router.post('/signup', signup);
 /* router.post('/verify-otp', verifyOTP); */
