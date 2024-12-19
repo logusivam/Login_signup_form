@@ -247,7 +247,7 @@ body {
     #otpInput,
     #submitOtp,
     #resendOtp {
-        width: 100%; /* Make buttons and inputs full width */
+        width: 750%; /* Make buttons and inputs full width */
         margin-top: 5px; /* Add some spacing */
     }
 }
