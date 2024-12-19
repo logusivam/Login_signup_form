@@ -354,6 +354,13 @@ var tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.
 document.getElementById('signupForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
+     // Check if terms and conditions are agreed
+     const agreeTerms = document.getElementById('agreeTerms').checked;
+     if (!agreeTerms) {
+         alert('Please agree to the Terms and Conditions to proceed.');
+         return; // Stop the function here
+     }
+
     // Capture form data
     const formData = {
         firstName: document.getElementById('firstName').value,
