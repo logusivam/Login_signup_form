@@ -2,6 +2,7 @@ const express = require('express');
 const { signup, loginUser } = require('../controllers/authController'); 
 const router = express.Router();
 const OTP = require('../models/User'); // OTP schema
+const verifyToken = require('../utils/authMiddleware');
 //const { sendOtpEmail } = require('../utils/otp');
  //const User = require('../models/User'); Import User model
 
@@ -119,5 +120,8 @@ router.post('/signup', signup);
 
 // login route 
 router.post('/login', loginUser);
-
+// Example of a protected route
+router.get('/protected', verifyToken, (req, res) => {
+    res.status(200).json({ message: 'You have accessed a protected route!', user: req.user });
+});
 module.exports = router;
