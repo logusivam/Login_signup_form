@@ -243,7 +243,7 @@ body {
         align-items: flex-start; /* Align items to the left */
     }
 
-    #verifyMail,
+    /* #verifyMail, */
     #otpInput,
     #submitOtp,
     #resendOtp {
@@ -253,7 +253,7 @@ body {
 }
 
 @media (max-width: 576px) { /* Mobile Mode */
-    #verifyMail,
+    /* #verifyMail, */
     #otpInput,
     #submitOtp,
     #resendOtp {
