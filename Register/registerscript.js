@@ -69,6 +69,56 @@ function enableVerifyButton() {
     }
 }
 
+// Elements
+const emailInput = document.getElementById("email");
+const verifyButton = document.getElementById("verifyMail");
+const otpSection = document.getElementById("otpSection");
+const otpInput = document.getElementById("otpInput");
+const submitOtpButton = document.getElementById("submitOtp");
+const resendOtpButton = document.getElementById("resendOtp");
+const otpMessage = document.getElementById("otpMessage");
+
+// Email Validation: Enable Verify Button only on valid email
+emailInput.addEventListener("input", () => {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (emailPattern.test(emailInput.value)) {
+        verifyButton.disabled = false;
+    } else {
+        verifyButton.disabled = true;
+    }
+});
+
+// Verify Button Click: Show OTP Section
+verifyButton.addEventListener("click", () => {
+    // Simulate OTP Generation (In real case, send OTP to backend)
+    localStorage.setItem("otp", Math.floor(1000 + Math.random() * 9000).toString());
+    alert("OTP has been sent to your email!");
+
+    // Display OTP Section
+    otpSection.style.display = "block";
+    otpMessage.innerText = "";
+});
+
+// Submit OTP Button
+submitOtpButton.addEventListener("click", () => {
+    const enteredOtp = otpInput.value;
+    const correctOtp = localStorage.getItem("otp");
+
+    if (enteredOtp === correctOtp) {
+        otpMessage.innerHTML = `<span class="text-success">OTP Verified Successfully!</span>`;
+        localStorage.removeItem("otp"); // Clear OTP after verification
+    } else {
+        otpMessage.innerHTML = `<span class="text-danger">Invalid OTP. Please try again.</span>`;
+    }
+});
+
+// Resend OTP Button
+resendOtpButton.addEventListener("click", () => {
+    const newOtp = Math.floor(1000 + Math.random() * 9000).toString();
+    localStorage.setItem("otp", newOtp);
+    alert("A new OTP has been sent to your email!");
+    otpMessage.innerText = "";
+});
 
 
 //validate password
@@ -241,8 +291,7 @@ function handleCapsLock(event, inputId, alertId) {
     }
 }
 
-// Safeguard: Add event listeners only if elements exist
-const emailInput = document.getElementById("email");
+// Safeguard: Add event listeners only if elements exist 
 if (emailInput) {
     emailInput.addEventListener("keydown", function(event) {
         handleCapsLock(event, "email", "emailCapsLockAlert");
