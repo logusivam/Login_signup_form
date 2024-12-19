@@ -92,6 +92,10 @@ document.getElementById("verifyMail").addEventListener("click", () => {
     // Show OTP Section
     document.getElementById("otpSection").style.display = "block";
     alert("An OTP has been sent to your email.");
+
+     // Display OTP Section
+     otpSection.style.display = "block";
+     otpMessage.innerText = "";
 });
 
 // Handle Submit OTP Button
