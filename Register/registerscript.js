@@ -124,6 +124,7 @@ document.getElementById("resendOtp").addEventListener("click", () => {
     console.log("New OTP:", newOtp); // Log for testing purposes
 
     alert("A new OTP has been sent to your email.");
+    otpMessage.innerText = "";
 });
 
 
