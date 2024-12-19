@@ -85,7 +85,7 @@ emailInput.addEventListener("input", () => {
     verifyButton.disabled = !emailRegex.test(emailInput.value);
 });
 
-/* // Handle Verify Button Click
+// Handle Verify Button Click
 verifyButton.addEventListener("click", () => {
     generatedOtp = Math.floor(1000 + Math.random() * 9000).toString(); // Generate OTP
     localStorage.setItem("otp", generatedOtp); // Store in localStorage
@@ -94,9 +94,10 @@ verifyButton.addEventListener("click", () => {
     otpSection.style.display = "block"; // Show OTP section
     otpMessage.style.display = "none"; // Hide previous messages
     otpMessage.textContent = "";
-}); */
+});
 
-verifyButton.addEventListener('click', async () => {
+//send password through gmail
+/* verifyButton.addEventListener('click', async () => {
     const email = document.getElementById('email').value;
 
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
@@ -148,11 +149,13 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
         console.error(error);
         alert('Error verifying OTP.');
     }
-});
+}); */
+
+//send password to gmail
 
 
 // Handle Submit OTP Button
-/* submitOtpButton.addEventListener("click", () => {
+submitOtpButton.addEventListener("click", () => {
     const enteredOtp = otpInput.value;
     const storedOtp = localStorage.getItem("otp");
 
@@ -180,7 +183,7 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
 
     // Clear OTP input field
     otpInput.value = "";
-}); */
+});
 
 // Handle Resend OTP Button
 resendOtpButton.addEventListener("click", () => {
