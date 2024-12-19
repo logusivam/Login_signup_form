@@ -69,29 +69,27 @@ function enableVerifyButton() {
     }
 }
 
-document.getElementById("email").addEventListener("input", () => {
-    const emailInput = document.getElementById("email").value;
-    const verifyButton = document.getElementById("verifyMail");
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Email validation regex
+const otpSection = document.getElementById("otpSection");
+const otpMessage = document.getElementById("otpMessage");
+const emailInputField = document.getElementById("email");
+const verifyButton = document.getElementById("verifyMail");
 
-    // Enable Verify button only if email format is correct
-    if (emailRegex.test(emailInput)) {
-        verifyButton.disabled = false;
-    } else {
-        verifyButton.disabled = true;
-    }
+// Email Validation
+emailInputField.addEventListener("input", () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    verifyButton.disabled = !emailRegex.test(emailInputField.value);
 });
 
 // Handle Verify Button Click
-document.getElementById("verifyMail").addEventListener("click", () => {
-    // Mock OTP generation and save to localStorage
-    const otp = Math.floor(1000 + Math.random() * 9000);
+verifyButton.addEventListener("click", () => {
+    const otp = Math.floor(1000 + Math.random() * 9000); // Mock OTP generation
     localStorage.setItem("otp", otp);
-    console.log("Generated OTP:", otp); // Log OTP for testing purposes
+    console.log("Generated OTP:", otp);
 
     // Show OTP Section
-    document.getElementById("otpSection").style.display = "block";
-    alert("An OTP has been sent to your email.");
+    otpSection.style.display = "block";
+    otpMessage.style.display = "none"; // Hide any previous message
+    otpMessage.textContent = ""; // Clear previous text
 });
 
 // Handle Submit OTP Button
@@ -100,27 +98,32 @@ document.getElementById("submitOtp").addEventListener("click", () => {
     const storedOtp = localStorage.getItem("otp");
 
     if (enteredOtp === storedOtp) {
-        alert("OTP Verified Successfully!");
+        // Hide OTP Section
+        otpSection.style.display = "none";
+
+        // Show Success Message
+        otpMessage.textContent = "OTP Verified Successfully!";
+        otpMessage.style.display = "block";
 
         // Clear OTP from localStorage
         localStorage.removeItem("otp");
-
-        // Hide OTP Section
-        document.getElementById("otpSection").style.display = "none";
     } else {
-        alert("Invalid OTP. Please try again.");
+        otpMessage.textContent = "Invalid OTP. Please try again.";
+        otpMessage.style.display = "block";
     }
 });
 
 // Handle Resend OTP Button
 document.getElementById("resendOtp").addEventListener("click", () => {
-    // Mock new OTP generation
     const newOtp = Math.floor(1000 + Math.random() * 9000);
     localStorage.setItem("otp", newOtp);
-    console.log("New OTP:", newOtp); // Log for testing purposes
+    console.log("New OTP:", newOtp);
 
-    alert("A new OTP has been sent to your email.");
+    // Show Resend Message
+    otpMessage.textContent = "A new OTP has been sent to your email.";
+    otpMessage.style.display = "block";
 });
+
 
 
 //validate password
