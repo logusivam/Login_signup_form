@@ -38,9 +38,7 @@ body {
     right: -20%;
     width: 200px;
     height: 200px;
-}
-
-
+} 
 
 /* Wider Login Container for Larger Screens */
 @media (min-width: 992px) {
