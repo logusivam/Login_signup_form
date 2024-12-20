@@ -293,8 +293,7 @@ function checkPasswordsMatch() {
         confirmPasswordInput.classList.remove("is-valid");
         confirmPasswordInput.classList.add("is-invalid");
     }
-}
-console.log("hi");
+} 
 // Password Field
 const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("password");
