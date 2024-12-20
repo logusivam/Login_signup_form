@@ -325,6 +325,15 @@ body {
 .star:nth-child(8) { left: 80%; animation-duration: 4s; animation-delay: 1.2s; }
 .star:nth-child(9) { left: 90%; animation-duration: 5s; animation-delay: 0.7s; }
 .star:nth-child(10) { left: 95%; animation-duration: 6s; animation-delay: 2.5s; }
+.star:nth-child(11) { left: 20%; animation-duration: 6s; animation-delay: 1s; }
+.star:nth-child(12) { left: 30%; animation-duration: 5s; animation-delay: 2s; }
+.star:nth-child(13) { left: 40%; animation-duration: 4s; animation-delay: 1.5s; }
+.star:nth-child(14) { left: 50%; animation-duration: 7s; animation-delay: 3s; }
+.star:nth-child(15) { left: 60%; animation-duration: 5s; animation-delay: 2s; }
+.star:nth-child(16) { left: 70%; animation-duration: 6s; animation-delay: 0.5s; }
+.star:nth-child(17) { left: 80%; animation-duration: 4s; animation-delay: 1.2s; }
+.star:nth-child(18) { left: 90%; animation-duration: 5s; animation-delay: 0.7s; }
+.star:nth-child(19) { left: 95%; animation-duration: 6s; animation-delay: 2.5s; }
 
 /* Falling animation */
 @keyframes fall {
