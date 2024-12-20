@@ -289,21 +289,15 @@ body {
     margin-top: 10px;
 }
 
-/* General styling */
-.d-flex {
-    margin: 0;
-    padding: 0;
-    background-color: #000; /* Night sky background */
-    overflow: hidden; /* Prevent scrollbars */
-    height: 100vh;
-    position: relative;
-}
+ 
 
 /* Falling stars container */
 .falling-stars {
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    z-index: 0;
 }
 
 /* Individual star styling */
