@@ -90,6 +90,7 @@ body {
     margin: 10px;
     animation: rotate 4s linear infinite; /* Apply rotation animation */
     position: absolute;
+    opacity: 0.5;
 }
 
 /* Different rotation speeds for each circle */
