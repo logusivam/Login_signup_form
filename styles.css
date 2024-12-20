@@ -42,9 +42,14 @@ body {
 } 
 
 /* Wider Login Container for Larger Screens */
-@media (max-width: 992px) {
+@media (min-width: 992px) {
     .login-container {
         max-width: 600px; /* Larger width for laptops and desktops */
+    }
+}
+/* Wider Login Container for Larger Screens */
+@media (max-width: 992px) {
+    .login-container {
         background-color: #1e1e1f79;
     }
 }
