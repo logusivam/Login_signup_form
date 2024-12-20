@@ -51,6 +51,7 @@ body {
 @media (max-width: 992px) {
     .login-container {
         background-color: #1e1e1f79;
+        max-width:400px ;
     }
 }
 
