@@ -192,19 +192,29 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
     }
 });
 
-// Resend OTP Logic
-resendOtpButton.addEventListener('click', async () => {
-    const email = document.getElementById('email').value;
+// Resend OTP Function
+async function resendOtp() {
+    const email = emailInput.value;
+    try {
+        let response = await fetch('http://localhost:5000/api/auth/resend-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
 
-    if (!email) {
-        otpMessage.textContent = 'Please enter your email.';
-        otpMessage.classList.add('text-danger');
-        otpMessage.style.display = 'block';
-        return;
+        let data = await response.json();
+        if (response.ok) {
+            alert(data.message);
+            startTimer(countdownDuration);
+        } else {
+            alert(data.message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to resend OTP.');
     }
+}
 
-    await sendOtp(email); // Resend new OTP
-});
 
 //send password to gmail end
 
