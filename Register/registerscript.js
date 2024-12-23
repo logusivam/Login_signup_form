@@ -187,31 +187,18 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
     }
 });
 
-// Resend OTP with Timer
+// Resend OTP Logic
 resendOtpButton.addEventListener('click', async () => {
     const email = document.getElementById('email').value;
 
-    // Disable Resend Button
-    resendOtpButton.disabled = true;
-    resendMessage.textContent = 'Resend OTP available in 1 minute.';
-    resendMessage.classList.add('text-warning');
-    resendMessage.style.display = 'block';
+    if (!email) {
+        otpMessage.textContent = 'Please enter your email.';
+        otpMessage.classList.add('text-danger');
+        otpMessage.style.display = 'block';
+        return;
+    }
 
-    // Send New OTP
-    await sendOtp(email);
-
-    // Timer Logic for 1 Minute
-    let timeLeft = 60;
-    const timer = setInterval(() => {
-        timeLeft--;
-        resendMessage.textContent = `Resend OTP available in ${timeLeft} seconds.`;
-
-        if (timeLeft === 0) {
-            clearInterval(timer);
-            resendOtpButton.disabled = false;
-            resendMessage.textContent = '';
-        }
-    }, 1000);
+    await sendOtp(email); // Resend new OTP
 });
 
 //send password to gmail end
