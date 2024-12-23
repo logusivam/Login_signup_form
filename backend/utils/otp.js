@@ -6,7 +6,7 @@ dotenv.config();
 // Generate OTP
 /* const generateOTP = () => {
     return crypto.randomInt(100000, 999999).toString(); // 6-digit OTP
-}; */
+}; 
 
 // Send OTP Email
 const sendOTPEmail = async (email, otp) => {
@@ -28,10 +28,10 @@ const sendOTPEmail = async (email, otp) => {
     await transporter.sendMail(mailOptions);
 };
 
-module.exports = { generateOTP, sendOTPEmail };
+module.exports = { generateOTP, sendOTPEmail };*/
 
 
-/*  directly sending maails code
+ // directly sending maails code
 // Email utility to send OTP
 const sendOtpEmail = async (email, otp) => {
     const transporter = nodemailer.createTransport({
@@ -59,4 +59,3 @@ const sendOtpEmail = async (email, otp) => {
 };
 
 module.exports = { sendOtpEmail };
- */
