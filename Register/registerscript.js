@@ -120,12 +120,21 @@ verifyButton.addEventListener('click', async () => {
         if (response.ok) {
             document.getElementById('otpSection').style.display = 'block';
             console.log(result.message);
+            otpMessage.textContent = 'OTP Sent Successfully!';
+            otpMessage.classList.add('text-success');
+            otpMessage.style.display = 'block';
         } else {
             alert(result.message);
+            otpMessage.textContent = result.message;
+            otpMessage.classList.add('text-danger');
+            otpMessage.style.display = 'block';
         }
     } catch (error) {
         console.error(error);
         alert('Error sending OTP.');
+        otpMessage.textContent = 'Failed to send OTP. Try again.';
+        otpMessage.classList.add('text-danger');
+        otpMessage.style.display = 'block';
     }
 });
 
