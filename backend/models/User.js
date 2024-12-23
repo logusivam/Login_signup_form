@@ -26,7 +26,7 @@ userSchema.methods.matchPassword = async function(enteredPassword) {
 
 const otpSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
-    otp: { type: String, required: true },
+    otp: { type: String, required: true }, // Hashed OTP
     expiresAt: { type: Date, required: true },
 });
 
