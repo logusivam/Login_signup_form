@@ -108,25 +108,48 @@ exports.loginUser = async (req, res) => {
 
 
 
-// Verify OTP Logic
-/* exports.verifyOTP = async (req, res) => {
-    const { email, enteredOTP } = req.body;
+// Send OTP
+exports.sendOtp = async (req, res) => {
+    const { email } = req.body;
 
     try {
-        const user = await User.findOne({ email });
+        const otp = Math.floor(1000 + Math.random() * 9000).toString();
 
-        if (!user) return res.status(400).json({ message: 'User not found' });
-        if (user.otp !== enteredOTP || user.otpExpires < new Date()) {
-            return res.status(400).json({ message: 'Invalid or expired OTP' });
+        await Otp.findOneAndUpdate(
+            { email },
+            { otp, expiresAt: Date.now() + 5 * 60 * 1000 }, // Expires in 5 minutes
+            { upsert: true, new: true }
+        );
+
+        await sendOtpEmail(email, otp); // Send OTP via email utility
+
+        res.status(200).json({ message: 'OTP sent successfully!' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Failed to send OTP.' });
+    }
+};
+
+// Verify OTP
+exports.verifyOtp = async (req, res) => {
+    const { email, otp } = req.body;
+
+    try {
+        const record = await Otp.findOne({ email });
+
+        if (!record || record.otp !== otp) {
+            return res.status(400).json({ message: 'Invalid OTP.' });
         }
 
-        // OTP Verified: Clear OTP fields
-        user.otp = undefined;
-        user.otpExpires = undefined;
-        await user.save();
+        if (Date.now() > record.expiresAt) {
+            return res.status(400).json({ message: 'OTP expired.' });
+        }
+
+        await Otp.deleteOne({ email }); // Remove OTP after successful verification
 
         res.status(200).json({ message: 'OTP verified successfully!' });
     } catch (error) {
-        res.status(500).json({ message: 'Error verifying OTP', error });
+        console.error(error);
+        res.status(500).json({ message: 'Failed to verify OTP.' });
     }
-}; */
+};
