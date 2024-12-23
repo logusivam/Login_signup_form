@@ -13,6 +13,7 @@ body {
     transition: width 0.3s ease;
     overflow: hidden;
     position: relative; /* Ensure the container is positioned for absolute positioning of the circle */
+    z-index: 1;
 }
 
 .sign-up-form::before {
