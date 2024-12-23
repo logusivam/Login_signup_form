@@ -153,7 +153,7 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
 
 //send password to gmail end
 
-
+// for local storage otp verification
 // Handle Submit OTP Button
 /* submitOtpButton.addEventListener("click", () => {
     const enteredOtp = otpInput.value;
