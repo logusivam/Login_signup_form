@@ -22,7 +22,7 @@ const sendOTPEmail = async (email, otp) => {
         from: process.env.EMAIL_USER,
         to: email,
         subject: 'Your OTP for Account Verification',
-        text: `Your OTP is: ${otp}. It will expire in 10 minutes.`,
+        text: `Your OTP for email verification is: ${otp}. It will expire in 5 minutes.`,
     };
 
     await transporter.sendMail(mailOptions);
