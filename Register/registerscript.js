@@ -160,11 +160,38 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
         } else {
             otpMessage.textContent = result.message;
             otpMessage.classList.add('text-danger');
-        }
+        }otpMessage.style.display = 'block';
     } catch (error) {
         console.error(error);
         alert('Error verifying OTP.');
     }
+});
+
+// Resend OTP with Timer
+resendOtpButton.addEventListener('click', async () => {
+    const email = document.getElementById('email').value;
+
+    // Disable Resend Button
+    resendOtpButton.disabled = true;
+    resendMessage.textContent = 'Resend OTP available in 1 minute.';
+    resendMessage.classList.add('text-warning');
+    resendMessage.style.display = 'block';
+
+    // Send New OTP
+    await sendOtp(email);
+
+    // Timer Logic for 1 Minute
+    let timeLeft = 60;
+    const timer = setInterval(() => {
+        timeLeft--;
+        resendMessage.textContent = `Resend OTP available in ${timeLeft} seconds.`;
+
+        if (timeLeft === 0) {
+            clearInterval(timer);
+            resendOtpButton.disabled = false;
+            resendMessage.textContent = '';
+        }
+    }, 1000);
 });
 
 //send password to gmail end
