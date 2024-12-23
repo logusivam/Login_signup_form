@@ -211,7 +211,10 @@ async function resendOtp() {
             otpMessage.style.display = 'block';
             startTimer(countdownDuration);
         } else {
-            alert(data.message);
+            alert(result.message);
+            otpMessage.textContent = result.message;
+            otpMessage.classList.add('text-danger');
+            otpMessage.style.display = 'block';
         }
     } catch (error) {
         console.error('Error:', error);
