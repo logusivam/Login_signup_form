@@ -114,11 +114,12 @@ exports.sendOtp = async (req, res) => {
     const { email } = req.body;
 
     try {
-        const otp = Math.floor(1000 + Math.random() * 9000).toString();
+        const otp = generateSecureOtp();
+        const hashedOtp = hashOtp(otp);
 
         await Otp.findOneAndUpdate(
             { email },
-            { otp, expiresAt: Date.now() + 5 * 60 * 1000 }, // Expires in 5 minutes
+            { otp: hashedOtp, expiresAt: Date.now() + 5 * 60 * 1000 }, // Expires in 5 minutes
             { upsert: true, new: true }
         );
 
