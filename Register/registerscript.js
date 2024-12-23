@@ -77,30 +77,35 @@ const otpInput = document.getElementById("otpInput");
 const submitOtpButton = document.getElementById("submitOtp");
 const resendOtpButton = document.getElementById("resendOtp");
 const resendMessage = document.createElement('div'); // For timer message
+const timerElement = document.getElementById("timer");
 
-// Append timer message below Resend OTP button
-resendOtpButton.parentNode.appendChild(resendMessage);
+let countdown;
+let countdownDuration = 60; // 60 seconds
 
-// Utility function for timer
-function startResendTimer(durationInSeconds) {
-    let timeLeft = durationInSeconds;
-    resendOtpButton.disabled = true; // Disable Resend button
-    resendMessage.style.display = 'block';
-    resendMessage.classList.add('text-warning');
+// Disable resend button initially
+window.onload = () => {
+    startTimer(countdownDuration);
+};
 
-    const timer = setInterval(() => {
-        resendMessage.textContent = `Resend OTP available in ${timeLeft} seconds.`;
-        timeLeft--;
+// Start Countdown Timer
+function startTimer(duration) {
+    let timer = duration;
+    resendOtpButton.disabled = true;
 
-        if (timeLeft < 0) {
-            clearInterval(timer);
+    countdown = setInterval(() => {
+        let minutes = Math.floor(timer / 60);
+        let seconds = timer % 60;
+
+        timerElement.innerText = `Resend OTP in ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        
+        if (--timer < 0) {
+            clearInterval(countdown);
+            timerElement.innerText = '';
             resendOtpButton.disabled = false;
-            resendMessage.textContent = '';
         }
     }, 1000);
 }
-
-
+ 
 /*let generatedOtp = ""; */ // To store OTP
 
 // Enable Verify button if email is valid
