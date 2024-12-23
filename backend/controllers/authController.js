@@ -154,3 +154,25 @@ exports.verifyOtp = async (req, res) => {
         res.status(500).json({ message: 'Failed to verify OTP.' });
     }
 };
+
+// Resend OTP
+exports.resendOtp = async (req, res) => {
+    const { email } = req.body;
+
+    try {
+        const otp = Math.floor(1000 + Math.random() * 9000).toString();
+
+        await Otp.findOneAndUpdate(
+            { email },
+            { otp, expiresAt: Date.now() + 5 * 60 * 1000 }, // OTP expires in 5 minutes
+            { upsert: true, new: true }
+        );
+
+        await sendOtpEmail(email, otp); // Send OTP via email utility
+
+        res.status(200).json({ message: 'OTP resent successfully!' });
+    } catch (error) {
+        console.error('Error resending OTP:', error.message || error);
+        res.status(500).json({ message: 'Failed to resend OTP.', error: error.message });
+    }
+};

@@ -1,5 +1,5 @@
 const express = require('express');
-const { signup, loginUser, sendOtp, verifyOtp } = require('../controllers/authController'); 
+const { signup, loginUser, sendOtp, verifyOtp,  resendOtp } = require('../controllers/authController'); 
 const router = express.Router();
 const verifyToken = require('../utils/authMiddleware');
 const { sendOtpEmail } = require('../utils/otp');
@@ -120,6 +120,7 @@ router.post('/verify-otp', async (req, res) => {
 router.post('/signup', signup);
 router.post('/send-otp', sendOtp);
 router.post('/verify-otp', verifyOtp);
+router.post('/resend-otp', resendOtp);
 
 // login route 
 router.post('/login', loginUser);
