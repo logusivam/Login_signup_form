@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const { generateOTP, sendOtpEmail } = require('../utils/otp');
 const jwt = require('jsonwebtoken');
+const Otp = require('../models/User'); // OTP schema
 
 // Signup Logic
 exports.signup = async (req, res) => {
