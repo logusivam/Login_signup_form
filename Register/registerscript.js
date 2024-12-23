@@ -69,7 +69,7 @@ aadhaarInput.addEventListener("input", function (e) {
     }
 } */
 
-/* const otpSection = document.getElementById("otpSection");
+const otpSection = document.getElementById("otpSection");
 const otpMessage = document.getElementById("otpMessage");
 const emailInput = document.getElementById("email");
 const verifyButton = document.getElementById("verifyMail");
@@ -77,14 +77,14 @@ const otpInput = document.getElementById("otpInput");
 const submitOtpButton = document.getElementById("submitOtp");
 const resendOtpButton = document.getElementById("resendOtp");
 
-let generatedOtp = ""; */ // To store OTP
+/*let generatedOtp = ""; */ // To store OTP
 
 // Enable Verify button if email is valid
-/* emailInput.addEventListener("input", () => {
+ emailInput.addEventListener("input", () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     verifyButton.disabled = !emailRegex.test(emailInput.value);
 });
-
+/*
 // Handle Verify Button Click
 verifyButton.addEventListener("click", () => {
     generatedOtp = Math.floor(1000 + Math.random() * 9000).toString(); // Generate OTP
