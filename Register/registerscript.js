@@ -97,7 +97,7 @@ verifyButton.addEventListener("click", () => {
 }); */
 
 //send password through gmail
-/* verifyButton.addEventListener('click', async () => {
+verifyButton.addEventListener('click', async () => {
     const email = document.getElementById('email').value;
 
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
@@ -149,7 +149,7 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
         console.error(error);
         alert('Error verifying OTP.');
     }
-}); */
+});
 
 //send password to gmail
 
