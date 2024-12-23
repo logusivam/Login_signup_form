@@ -218,7 +218,9 @@ async function resendOtp() {
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Failed to resend OTP.');
+        otpMessage.textContent = 'Failed to send OTP. Try again.';
+        otpMessage.classList.add('text-danger');
+        otpMessage.style.display = 'block';
     }
 }
 resendOtpButton.addEventListener('click', resendOtp);
