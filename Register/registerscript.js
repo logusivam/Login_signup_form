@@ -210,8 +210,7 @@ async function resendOtp() {
             otpMessage.classList.add('text-success');
             otpMessage.style.display = 'block';
             startTimer(countdownDuration);
-        } else {
-            alert(result.message);
+        } else { 
             otpMessage.textContent = result.message;
             otpMessage.classList.add('text-danger');
             otpMessage.style.display = 'block';
