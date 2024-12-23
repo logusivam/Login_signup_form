@@ -202,7 +202,7 @@ async function resendOtp() {
             body: JSON.stringify({ email })
         });
 
-        let data = await response.json();
+        let result = await response.json();
         if (response.ok) {
             document.getElementById('otpSection').style.display = 'block';
             console.log(result.message);
