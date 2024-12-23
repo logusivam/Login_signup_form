@@ -152,11 +152,14 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
 
         const result = await response.json();
         if (response.ok) {
-            document.getElementById('otpSection').style.display = 'none';
-            document.getElementById('otpMessage').textContent = 'OTP Verified Successfully!';
+            otpSection.style.display = 'none';
+            otpMessage.textContent = 'OTP Verified Successfully!';
+            otpMessage.classList.remove('text-danger');
+            otpMessage.classList.add('text-success');
             verifyButton.disabled = true;
         } else {
-            document.getElementById('otpMessage').textContent = result.message;
+            otpMessage.textContent = result.message;
+            otpMessage.classList.add('text-danger');
         }
     } catch (error) {
         console.error(error);
