@@ -51,6 +51,8 @@ const { sendOtpEmail } = require('../utils/otp');
     }
 }); */
 
+
+
 // Generate OTP and send to email by simple mail without any library
 /* router.post('/send-otp', async (req, res) => {
     const { email } = req.body;
