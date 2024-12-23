@@ -1,12 +1,12 @@
-/* const nodemailer = require('nodemailer');
+ const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 const dotenv = require('dotenv');
 dotenv.config();
 
 // Generate OTP
-const generateOTP = () => {
+/* const generateOTP = () => {
     return crypto.randomInt(100000, 999999).toString(); // 6-digit OTP
-};
+}; */
 
 // Send OTP Email
 const sendOTPEmail = async (email, otp) => {
