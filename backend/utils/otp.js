@@ -3,33 +3,15 @@ const crypto = require('crypto');
 const dotenv = require('dotenv');
 dotenv.config();
 
-// Generate OTP
-/* const generateOTP = () => {
-    return crypto.randomInt(100000, 999999).toString(); // 6-digit OTP
-}; 
-
-// Send OTP Email
-const sendOTPEmail = async (email, otp) => {
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
-        },
-    });
-
-    const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: email,
-        subject: 'Your OTP for Account Verification',
-        text: `Your OTP for email verification is: ${otp}. It will expire in 5 minutes.`,
-    };
-
-    await transporter.sendMail(mailOptions);
+// Generate Secure OTP
+const generateSecureOtp = () => {
+    return crypto.randomInt(1000, 9999).toString(); // Generates a 4-digit OTP securely
 };
 
-module.exports = { generateOTP, sendOTPEmail };*/
-
+// Hash OTP with SHA256
+const hashOtp = (otp) => {
+    return crypto.createHash('sha256').update(otp).digest('hex');
+};
 
  // directly sending maails code
 // Email utility to send OTP
