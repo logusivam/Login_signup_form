@@ -204,7 +204,11 @@ async function resendOtp() {
 
         let data = await response.json();
         if (response.ok) {
-            alert(data.message);
+            document.getElementById('otpSection').style.display = 'block';
+            console.log(result.message);
+            otpMessage.textContent = 'OTP Sent Successfully!';
+            otpMessage.classList.add('text-success');
+            otpMessage.style.display = 'block';
             startTimer(countdownDuration);
         } else {
             alert(data.message);
