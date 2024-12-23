@@ -52,7 +52,7 @@ const { sendOtpEmail } = require('../utils/otp');
 }); */
 
 // Generate OTP and send to email by simple mail without any library
-/* router.post('/send-otp', async (req, res) => {
+router.post('/send-otp', async (req, res) => {
     const { email } = req.body;
 
     if (!email) {
@@ -112,7 +112,7 @@ router.post('/verify-otp', async (req, res) => {
         return res.status(500).json({ message: 'OTP verification failed.' });
     }
 });
- */
+
 
 
 router.post('/signup', signup);
