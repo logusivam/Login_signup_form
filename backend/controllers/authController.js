@@ -139,10 +139,15 @@ exports.verifyOtp = async (req, res) => {
     try {
         const record = await Otp.findOne({ email });
 
-        if (!record || record.otp !== otp) {
-            return res.status(400).json({ message: 'Invalid OTP.' });
+        if (!record) {
+            return res.status(400).json({ message: 'OTP not found.' });
         }
 
+        const hashedOtp = hashOtp(otp);
+        if (hashedOtp !== record.otp) {
+            return res.status(400).json({ message: 'Invalid OTP.' });
+        }
+ 
         if (Date.now() > record.expiresAt) {
             return res.status(400).json({ message: 'OTP expired.' });
         }
@@ -161,11 +166,12 @@ exports.resendOtp = async (req, res) => {
     const { email } = req.body;
 
     try {
-        const otp = Math.floor(1000 + Math.random() * 9000).toString();
+        const otp = generateSecureOtp();
+        const hashedOtp = hashOtp(otp);
 
         await Otp.findOneAndUpdate(
             { email },
-            { otp, expiresAt: Date.now() + 5 * 60 * 1000 }, // OTP expires in 5 minutes
+            { otp: hashedOtp, expiresAt: Date.now() + 5 * 60 * 1000 }, // OTP expires in 5 minutes
             { upsert: true, new: true }
         );
 
