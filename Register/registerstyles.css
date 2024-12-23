@@ -90,8 +90,7 @@ body {
     border-radius: 50%;
     margin: 10px;
     animation: rotate 4s linear infinite; /* Apply rotation animation */
-    position: absolute;
-    opacity: 0.5;
+    position: absolute; 
     z-index: 0;
     top: 50%;
 }
