@@ -6,14 +6,13 @@ body {
 
 /* Sign up form container */
 .sign-up-form {
-    background-color: #1e1e1e;
+    background-color: #1e1e1e80;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
     transition: width 0.3s ease;
     overflow: hidden;
     position: relative; /* Ensure the container is positioned for absolute positioning of the circle */
-    z-index: 1;
 }
 
 .sign-up-form::before {
