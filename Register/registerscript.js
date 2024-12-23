@@ -96,7 +96,7 @@ verifyButton.addEventListener("click", () => {
     otpMessage.textContent = "";
 }); */
 
-//send password through gmail
+//send password through gmail start
 verifyButton.addEventListener('click', async () => {
     const email = document.getElementById('email').value;
 
@@ -151,7 +151,7 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
     }
 });
 
-//send password to gmail
+//send password to gmail end
 
 
 // Handle Submit OTP Button
