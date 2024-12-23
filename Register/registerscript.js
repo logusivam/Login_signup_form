@@ -214,7 +214,7 @@ async function resendOtp() {
         alert('Failed to resend OTP.');
     }
 }
-
+resendOtpButton.addEventListener('click', resendOtp);
 
 //send password to gmail end
 
