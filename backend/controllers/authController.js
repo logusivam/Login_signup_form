@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
-const { generateOTP, sendOTPEmail } = require('../utils/otp');
+const { generateOTP, sendOtpEmail } = require('../utils/otp');
 const jwt = require('jsonwebtoken');
 
 // Signup Logic
