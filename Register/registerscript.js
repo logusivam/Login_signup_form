@@ -76,6 +76,7 @@ const verifyButton = document.getElementById("verifyMail");
 const otpInput = document.getElementById("otpInput");
 const submitOtpButton = document.getElementById("submitOtp");
 const resendOtpButton = document.getElementById("resendOtp");
+const resendMessage = document.createElement('div'); // For timer message
 
 /*let generatedOtp = ""; */ // To store OTP
 
