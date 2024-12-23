@@ -78,6 +78,9 @@ const submitOtpButton = document.getElementById("submitOtp");
 const resendOtpButton = document.getElementById("resendOtp");
 const resendMessage = document.createElement('div'); // For timer message
 
+// Append timer message below Resend OTP button
+resendOtpButton.parentNode.appendChild(resendMessage);
+
 /*let generatedOtp = ""; */ // To store OTP
 
 // Enable Verify button if email is valid
