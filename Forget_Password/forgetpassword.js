@@ -31,3 +31,67 @@ otpInput.forEach((input, index) => {
         }
     });
 });
+
+// Send OTP
+sendOtpBtn.addEventListener('click', async () => {
+    const email = emailInput.value;
+
+    try {
+        let response = await fetch('/api/auth/forget-password/send-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+
+        let data = await response.json();
+        statusText.textContent = data.message;
+
+        if (response.ok) {
+            otpInput.disabled = false;
+            verifyOtpBtn.disabled = false;
+        }
+    } catch (error) {
+        statusText.textContent = 'Error sending OTP';
+    }
+});
+
+// Verify OTP
+verifyOtpBtn.addEventListener('click', async () => {
+    const email = emailInput.value;
+    const otp = otpInput.value;
+
+    try {
+        let response = await fetch('/api/auth/forget-password/verify-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, otp })
+        });
+
+        let data = await response.json();
+        statusText.textContent = data.message;
+
+        if (response.ok) {
+            sendPasswordBtn.disabled = false;
+        }
+    } catch (error) {
+        statusText.textContent = 'Error verifying OTP';
+    }
+});
+
+// Send Password
+sendPasswordBtn.addEventListener('click', async () => {
+    const email = emailInput.value;
+
+    try {
+        let response = await fetch('/api/auth/forget-password/send-password', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+
+        let data = await response.json();
+        statusText.textContent = data.message;
+    } catch (error) {
+        statusText.textContent = 'Error sending password';
+    }
+});
