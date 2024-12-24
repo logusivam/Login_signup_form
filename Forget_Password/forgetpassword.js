@@ -47,10 +47,11 @@ verifyBtn.addEventListener('click', async () => {
         statusText.textContent = data.message;
 
         if (response.ok) {
-            otpInput.disabled = false;
+            otpInput.forEach(input => input.disabled = false);
             verifyOtpBtn.disabled = false;
         }
     } catch (error) {
+        console.error(error);
         statusText.textContent = 'Error sending OTP';
     }
 });
