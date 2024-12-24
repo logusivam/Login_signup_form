@@ -183,3 +183,5 @@ exports.resendOtp = async (req, res) => {
         res.status(500).json({ message: 'Failed to resend OTP.', error: error.message });
     }
 };
+
+
