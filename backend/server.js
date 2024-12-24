@@ -5,7 +5,7 @@ const connectDB = require('./utils/db');
 const authRoutes = require('./routes/auth');
 //for country detail 
 const { countries } = require('countries-list');
-
+const cors = require('cors');
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
