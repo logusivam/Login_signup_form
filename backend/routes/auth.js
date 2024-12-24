@@ -1,6 +1,7 @@
 const express = require('express');
-const { signup, loginUser, sendOtp, verifyOtp,  resendOtp,
-        sendForgetPasswordOtp, verifyForgetPasswordOtp, sendPassword
+const { signup, loginUser, sendOtp, verifyOtp,  resendOtp
+        } = require('../controllers/authController'); 
+const { sendForgetPasswordOtp, verifyForgetPasswordOtp, sendPassword
         } = require('../controllers/authController'); 
 const router = express.Router();
 const verifyToken = require('../utils/authMiddleware');
@@ -132,7 +133,7 @@ router.post('/login', loginUser);
 router.get('/protected', verifyToken, (req, res) => {
     res.status(200).json({ message: 'You have accessed a protected route!', user: req.user });
 });
-
+/* 
 // Forget Password Routes
 
 router.post('/forget-password/send-otp', (req, res) => {
@@ -142,5 +143,5 @@ router.post('/forget-password/send-otp', (req, res) => {
 
 router.post('/forget-password/verify-otp', verifyForgetPasswordOtp);
 router.post('/forget-password/send-password', sendPassword);
-
+ */
 module.exports = router;
