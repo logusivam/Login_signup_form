@@ -14,7 +14,7 @@ const path = require('path'); // Add this to handle file paths
 // Serve static files (styles, scripts, HTML)
 app.use(express.static(path.join(__dirname, '../Register')));
 // Routes for Pages
-app.get('/', (req, res) => {
+app.post('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../Register/register.html'));
 });
 
