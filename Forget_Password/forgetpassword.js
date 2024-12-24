@@ -1,4 +1,4 @@
-const emailInput = document.getElementById('email');
+/* const emailInput = document.getElementById('email');
 const verifyBtn = document.getElementById('sendOtpBtn');
 const otpInput = document.querySelectorAll('.otp-digit');
 const verifyOtpBtn = document.getElementById('verifyOtpBtn');
@@ -95,4 +95,4 @@ sendPasswordBtn.addEventListener('click', async () => {
     } catch (error) {
         statusText.textContent = 'Error sending password';
     }
-});
+}); */
