@@ -33,7 +33,7 @@ otpInput.forEach((input, index) => {
 });
 
 // Send OTP
-sendOtpBtn.addEventListener('click', async () => {
+verifyBtn.addEventListener('click', async () => {
     const email = emailInput.value;
 
     try {
