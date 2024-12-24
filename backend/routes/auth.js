@@ -130,6 +130,11 @@ router.post('/forget-password/send-otp', sendForgetPasswordOtp);
 router.post('/forget-password/verify-otp', verifyForgetPasswordOtp);
 router.post('/forget-password/send-password', sendPassword);
 
+router.post('/forget-password/send-otp', (req, res) => {
+    console.log('Request received for /forget-password/send-otp');
+    sendForgetPasswordOtp(req, res);
+});
+
 
 // login route 
 router.post('/login', loginUser);

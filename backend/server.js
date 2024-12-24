@@ -10,6 +10,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const path = require('path'); // Add this to handle file paths
+const cors = require('cors');
+app.use(cors());
 
 // Serve static files (styles, scripts, HTML)
 app.use(express.static(path.join(__dirname, '../Register')));
