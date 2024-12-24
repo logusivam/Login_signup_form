@@ -4,8 +4,7 @@ const bodyParser = require('body-parser');
 const connectDB = require('./utils/db');
 const authRoutes = require('./routes/auth');
 //for country detail 
-const { countries } = require('countries-list');
-const cors = require('cors');
+const { countries } = require('countries-list'); 
 
 dotenv.config();
 const app = express();
@@ -41,7 +40,7 @@ app.get('/api/countries', (req, res) => {
 // Middleware
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors());
+
 
 // Routes
 app.use('/api/auth', authRoutes);
