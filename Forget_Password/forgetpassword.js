@@ -1,5 +1,5 @@
 const emailInput = document.getElementById('email');
-const verifyBtn = document.getElementById('verify-btn');
+const verifyBtn = document.getElementById('sendOtpBtn');
 const otpInputs = document.querySelectorAll('.otp-digit');
 
 // Enable Verify Button if the Email is Valid
