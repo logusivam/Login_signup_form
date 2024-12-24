@@ -197,7 +197,7 @@ exports.sendForgetPasswordOtp = async (req, res) => {
         const otp = generateSecureOtp();
         const hashedOtp = hashOtp(otp);
 
-        await OTP.findOneAndUpdate(
+        await Otp.findOneAndUpdate(
             { email },
             { otp: hashedOtp, expiresAt: Date.now() + 5 * 60 * 1000 },
             { upsert: true, new: true }
@@ -217,7 +217,7 @@ exports.verifyForgetPasswordOtp = async (req, res) => {
     const { email, otp } = req.body;
 
     try {
-        const record = await OTP.findOne({ email });
+        const record = await Otp.findOne({ email });
         if (!record) {
             return res.status(400).json({ message: 'OTP not found.' });
         }
@@ -231,7 +231,7 @@ exports.verifyForgetPasswordOtp = async (req, res) => {
             return res.status(400).json({ message: 'OTP expired.' });
         }
 
-        await OTP.deleteOne({ email }); // Clear OTP record
+        await Otp.deleteOne({ email }); // Clear OTP record
 
         res.status(200).json({ message: 'OTP verified successfully!' });
     } catch (error) {
