@@ -23,6 +23,10 @@ app.use(express.static(path.join(__dirname, '../')));
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'));
 });
+app.use(express.static(path.join(__dirname, '../')));
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, '../index.html'));
+});
 
 
 // Route to get countries and phone codes
