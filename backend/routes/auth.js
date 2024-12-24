@@ -2,6 +2,8 @@ const express = require('express');
 const { signup, loginUser, sendOtp, verifyOtp,  resendOtp } = require('../controllers/authController'); 
 const router = express.Router();
 const verifyToken = require('../utils/authMiddleware');
+const { sendForgetPasswordOtp, verifyForgetPasswordOtp, sendPassword, } = require('../controllers/authController');
+
 //const { sendOtpEmail } = require('../utils/otp');
 // const OTP = require('../models/User'); OTP schema
  //const User = require('../models/User'); Import User model
