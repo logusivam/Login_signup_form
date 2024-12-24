@@ -184,4 +184,77 @@ exports.resendOtp = async (req, res) => {
     }
 };
 
+// Step 1: Verify Email and Send OTP
+exports.sendForgetPasswordOtp = async (req, res) => {
+    const { email } = req.body;
 
+    try {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ message: 'Email not found' });
+        }
+
+        const otp = generateSecureOtp();
+        const hashedOtp = hashOtp(otp);
+
+        await OTP.findOneAndUpdate(
+            { email },
+            { otp: hashedOtp, expiresAt: Date.now() + 5 * 60 * 1000 },
+            { upsert: true, new: true }
+        );
+
+        await sendOtpEmail(email, otp); // Send plain OTP via email
+
+        res.status(200).json({ message: 'OTP sent to your email.' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Failed to send OTP for password reset.' });
+    }
+};
+
+// Step 2: Verify OTP
+exports.verifyForgetPasswordOtp = async (req, res) => {
+    const { email, otp } = req.body;
+
+    try {
+        const record = await OTP.findOne({ email });
+        if (!record) {
+            return res.status(400).json({ message: 'OTP not found.' });
+        }
+
+        const hashedOtp = hashOtp(otp);
+        if (hashedOtp !== record.otp) {
+            return res.status(400).json({ message: 'Invalid OTP.' });
+        }
+
+        if (Date.now() > record.expiresAt) {
+            return res.status(400).json({ message: 'OTP expired.' });
+        }
+
+        await OTP.deleteOne({ email }); // Clear OTP record
+
+        res.status(200).json({ message: 'OTP verified successfully!' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Failed to verify OTP.' });
+    }
+};
+
+// Step 3: Send Password via Email
+exports.sendPassword = async (req, res) => {
+    const { email } = req.body;
+
+    try {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found.' });
+        }
+
+        await sendOtpEmail(email, `Your password is: ${user.password}`);
+
+        res.status(200).json({ message: 'Password sent to your email.' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Failed to send password.' });
+    }
+};
