@@ -11,6 +11,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const path = require('path'); // Add this to handle file paths 
  
+// Connect to MongoDB
+connectDB();
+
 // Serve static files (styles, scripts, HTML)
 app.use(express.static(path.join(__dirname, '../Register')));
 // Routes for Pages
@@ -38,8 +41,6 @@ app.get('/api/countries', (req, res) => {
 app.use(bodyParser.json());
 app.use(express.json());
 
-// Connect to MongoDB
-connectDB();
 
 // Routes
 app.use('/api/auth', authRoutes);
