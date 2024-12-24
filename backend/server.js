@@ -6,6 +6,7 @@ const authRoutes = require('./routes/auth');
 //for country detail 
 const { countries } = require('countries-list');
 const cors = require('cors');
+
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -40,7 +41,7 @@ app.get('/api/countries', (req, res) => {
 // Middleware
 app.use(bodyParser.json());
 app.use(express.json());
-
+app.use(cors());
 
 // Routes
 app.use('/api/auth', authRoutes);
