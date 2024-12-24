@@ -37,7 +37,7 @@ verifyBtn.addEventListener('click', async () => {
     const email = emailInput.value;
 
     try {
-        let response = await fetch('http://localhost:5000/api/auth/forget-password/send-otp', {
+        let response = await fetch('http://localhost:5000/api/auth/forget-password/sendotp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })
@@ -61,7 +61,7 @@ verifyOtpBtn.addEventListener('click', async () => {
     const otp = otpInput.value;
 
     try {
-        let response = await fetch('http://localhost:5000/api/auth/forget-password/verify-otp', {
+        let response = await fetch('http://localhost:5000/api/auth/forget-password/verifyotp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, otp })
