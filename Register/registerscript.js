@@ -538,4 +538,3 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
         messageContainer.innerHTML = `<div class="text-danger mt-2">Something went wrong. Please try again.</div>`;
     }
 });
-
