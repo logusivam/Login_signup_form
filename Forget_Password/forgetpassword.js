@@ -5,6 +5,8 @@ const verifyOtpBtn = document.getElementById('verifyOtpBtn');/*
 const sendPasswordBtn = document.getElementById('sendPasswordBtn'); */
 const statusText = document.getElementById('status');
 const newPasswordSection = document.getElementById('newPasswordSection');
+const submitPasswordBtn = document.getElementById('submitPasswordBtn');
+const newPasswordInput = document.getElementById('newPassword');
 
 // Enable Verify Button if the Email is Valid
 emailInput.addEventListener('input', () => {
