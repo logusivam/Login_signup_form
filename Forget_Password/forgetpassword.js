@@ -109,24 +109,21 @@ function validatePassword() {
     }
 }
 
-// Function to detect Caps Lock and show alert
+// Caps Lock Detection
 function handleCapsLock(event, inputId, alertId) {
     let capsLockAlert = document.getElementById(alertId);
 
-    // Safeguard: Ensure capsLockAlert exists
     if (!capsLockAlert) {
         console.error(`Alert element with ID "${alertId}" not found.`);
         return;
     }
 
-    // Safeguard: Check if event.getModifierState exists
     if (typeof event.getModifierState === "function") {
-        // Check if Caps Lock is on or off
         if (event.getModifierState("CapsLock")) {
             capsLockAlert.textContent = "Caps Lock is ON";
             capsLockAlert.classList.add("visible");
         } else {
-            capsLockAlert.textContent = "Caps Lock is OFF";
+            capsLockAlert.textContent = "";
             capsLockAlert.classList.remove("visible");
         }
     } else {
