@@ -76,10 +76,15 @@ verifyOtpBtn.addEventListener('click', async () => {
         statusText.textContent = data.message;
 
         if (response.ok) {
+            statusText.style.color = 'green'; // Success message in green
             sendPasswordBtn.disabled = false;
+        } else {
+            statusText.style.color = 'red'; // Error message in red
         }
     } catch (error) {
+        console.error(error);
         statusText.textContent = 'Error verifying OTP';
+        statusText.style.color = 'red'; // Error in red for exception
     }
 });
 
