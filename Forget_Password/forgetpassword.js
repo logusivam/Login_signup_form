@@ -45,6 +45,7 @@ verifyBtn.addEventListener('click', async () => {
 
         let data = await response.json();
         statusText.textContent = data.message;
+        statusText.classList.add('text-danger');
 
         if (response.ok) {
             otpInput.forEach(input => input.disabled = false);
