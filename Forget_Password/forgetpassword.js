@@ -45,14 +45,10 @@ verifyBtn.addEventListener('click', async () => {
 
         let data = await response.json();
         statusText.textContent = data.message;
-        statusText.classList.add('text-danger');
 
         if (response.ok) {
             otpInput.forEach(input => input.disabled = false);
             verifyOtpBtn.disabled = false;
-            verifyOtpBtn.enabled = true;
-            statusText.classList.add('text-success');
-            statusText.style.display = 'block';
         }
     } catch (error) {
         console.error(error);
