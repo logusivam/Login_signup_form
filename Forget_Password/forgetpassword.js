@@ -36,7 +36,13 @@ otpInput.forEach((input, index) => {
     });
 });
 
+togglePassword.addEventListener('click', () => {
+    const type = newPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    newPasswordInput.setAttribute('type', type);
 
+    // Toggle eye icon
+    togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
+});
 
 
 /* otp verification for the forget-password page starts */
