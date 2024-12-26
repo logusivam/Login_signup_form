@@ -186,7 +186,8 @@ exports.resendOtp = async (req, res) => {
 
 
 // Step 1: Verify Email and Send OTP
-exports.sendForgetPasswordOtp = async (req, res) => {
+exports.sendForgetPasswordOtp = async (req, res) => { 
+    console.log('Request Body:', req.body); // Debug log
     const { email } = req.body;
 
     try {
