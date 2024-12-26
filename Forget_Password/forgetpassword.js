@@ -33,20 +33,21 @@ otpInput.forEach((input, index) => {
     });
 });
 
+/* otp verification for the forget-password page starts */
 // Send OTP
 verifyBtn.addEventListener('click', async () => {
     const email = emailInput.value;
-
+    
     try {
         let response = await fetch('http://localhost:5000/api/auth/forget-password/send-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })
         });
-
+        
         let data = await response.json();
         statusText.textContent = data.message;
-
+        
         if (response.ok) {
             statusText.style.color = 'green'; // Success message in green
             otpInput.forEach(input => input.disabled = false);
@@ -73,10 +74,10 @@ verifyOtpBtn.addEventListener('click', async () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, otp })
         });
-
+        
         let data = await response.json();
         statusText.textContent = data.message;
-
+        
         if (response.ok) {
             newPasswordSection.classList.remove('hidden');
             statusText.style.color = 'green'; // Success message in green
@@ -93,31 +94,34 @@ verifyOtpBtn.addEventListener('click', async () => {
         statusText.style.color = 'red'; // Error in red for exception
     }
 });
+/* otp verification for the forget-password page ends */
 
 /* 
 // Send Password
 sendPasswordBtn.addEventListener('click', async () => {
     const email = emailInput.value;
-
+    
     try {
         let response = await fetch('http://localhost:5000/api/auth/forget-password/send-password', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })
         });
-
+        
         let data = await response.json();
         statusText.textContent = data.message;
-
+        
         if (response.ok) {
             statusText.style.color = 'green'; // Success message in green
         } else {
             statusText.style.color = 'red'; // Failure message in red
-        }
-    } catch (error) {
-        console.error(error);
-        statusText.textContent = 'Error sending password';
-        statusText.style.color = 'red'; // Error message in red
     }
+} catch (error) {
+    console.error(error);
+    statusText.textContent = 'Error sending password';
+    statusText.style.color = 'red'; // Error message in red
+}
 });
  */
+
+
