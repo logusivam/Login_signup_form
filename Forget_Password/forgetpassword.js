@@ -101,7 +101,15 @@ sendPasswordBtn.addEventListener('click', async () => {
 
         let data = await response.json();
         statusText.textContent = data.message;
+
+        if (response.ok) {
+            statusText.style.color = 'green'; // Success message in green
+        } else {
+            statusText.style.color = 'red'; // Failure message in red
+        }
     } catch (error) {
+        console.error(error);
         statusText.textContent = 'Error sending password';
+        statusText.style.color = 'red'; // Error message in red
     }
 });
