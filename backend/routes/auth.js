@@ -118,12 +118,7 @@ router.post('/verify-otp', async (req, res) => {
     }
 }); */
 
-// login route 
-router.post('/login', loginUser);
-// Example of a protected route
-router.get('/protected', verifyToken, (req, res) => {
-    res.status(200).json({ message: 'You have accessed a protected route!', user: req.user });
-});
+
 
 router.post('/signup', signup);
 router.post('/send-otp', sendOtp);
@@ -131,7 +126,12 @@ router.post('/verify-otp', verifyOtp);
 router.post('/resend-otp', resendOtp);
 
 
-
+// login route 
+router.post('/login', loginUser);
+// Example of a protected route
+router.get('/protected', verifyToken, (req, res) => {
+    res.status(200).json({ message: 'You have accessed a protected route!', user: req.user });
+});
 /* 
 // Forget Password Routes
 
