@@ -509,8 +509,8 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
         email: document.getElementById('email').value,
         password: document.getElementById('password').value,
         mobile: document.getElementById('mobile').value,
-        countryCode: document.getElementById('countryCode').value,
-        verificationMethod: document.querySelector('input[name="verificationMethod"]:checked').id,/* 
+        countryCode: document.getElementById('countryCode').value,/*
+        verificationMethod: document.querySelector('input[name="verificationMethod"]:checked').id, 
         receiveAnnounceEmails: document.getElementById('receiveAnnounceEmails').checked,
         receiveRecommEmails: document.getElementById('receiveRecommEmails').checked, */
     };
