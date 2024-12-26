@@ -107,8 +107,7 @@ exports.loginUser = async (req, res) => {
     }
 };
 
-
-
+/* otp verification for the sign-up page */
 // Send OTP
 exports.sendOtp = async (req, res) => {
     const { email } = req.body;
