@@ -127,5 +127,34 @@ sendPasswordBtn.addEventListener('click', async () => {
  */
 
 /* password update for the forget-password page starts */
+submitPasswordBtn.addEventListener('click', async () => {
+    const email = emailInput.value.trim();
+    const newPassword = newPasswordInput.value.trim();
 
+    if (!email || !newPassword) {
+        alert('Please enter both email and new password.');
+        return;
+    }
 
+    try {
+        const response = await fetch('http://localhost:5000/api/auth/update-password', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, newPassword }),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            alert(data.message);
+        } else {
+            alert(`Error: ${data.message}`);
+        }
+    } catch (error) {
+        console.error('Failed to update password:', error);
+        alert('Failed to update password. Please try again later.');
+    }
+});
+
+/* password update for the forget-password page ends */
