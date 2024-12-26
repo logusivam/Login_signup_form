@@ -466,14 +466,14 @@ if (confirmPasswordInput) {
 }
 
 
-
+/* //mobile number verication
 document.getElementById('verifyText').addEventListener('change', function() {
     alert("You have selected Text Message for OTP verification.");
 });
 
 document.getElementById('verifyCall').addEventListener('change', function() {
     alert("You have selected Phone Call for OTP verification.");
-});
+}); */
 
 // mobile number usage
 // Initialize Bootstrap tooltips
