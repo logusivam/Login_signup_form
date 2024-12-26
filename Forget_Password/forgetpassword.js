@@ -1,8 +1,8 @@
 const emailInput = document.getElementById('email');
 const verifyBtn = document.getElementById('sendOtpBtn');
 const otpInput = document.querySelectorAll('.otp-digit');
-const verifyOtpBtn = document.getElementById('verifyOtpBtn');
-const sendPasswordBtn = document.getElementById('sendPasswordBtn');
+const verifyOtpBtn = document.getElementById('verifyOtpBtn');/* 
+const sendPasswordBtn = document.getElementById('sendPasswordBtn'); */
 const statusText = document.getElementById('status');
 const newPasswordSection = document.getElementById('newPasswordSection');
 
