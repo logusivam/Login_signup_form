@@ -52,12 +52,12 @@ function validatePassword() {
     const password = passwordInput.value;
 
     // Define password rules
-    const lengthCheck = /.{8,}/;
-    const uppercaseCheck = /[A-Z]/;
-    const lowercaseCheck = /[a-z]/;
-    const numericCheck = /[0-9]/;
-    const allowedSpecialCharCheck = /[^\w\d!@#\$%^&*]/;
-    const specialCharCheck = /[!@#\$%^&*]/;
+    const lengthCheck = /.{8,}/; // At least 8 characters
+    const uppercaseCheck = /[A-Z]/; // At least one uppercase letter
+    const lowercaseCheck = /[a-z]/; // At least one lowercase letter
+    const numericCheck = /[0-9]/; // At least one number
+    const specialCharCheck = /[!@#\$%^&*]/; // At least one special character (!, @, #, $, %, ^, &, *)
+    const disallowedSpecialCharCheck = /[^a-zA-Z0-9!@#\$%^&*]/; // Any disallowed special character
 
     let alertMessage = "";
 
@@ -76,26 +76,26 @@ function validatePassword() {
     if (!specialCharCheck.test(password)) {
         alertMessage += "• Password must contain at least one special character (!, @, #, $, %, ^, &, *).<br>";
     }
-    if (allowedSpecialCharCheck.test(password)) {
+    if (disallowedSpecialCharCheck.test(password)) {
         alertMessage += "• Password contains disallowed special characters.<br>";
     }
 
     // Update feedback
-    passwordAlert.innerHTML = alertMessage;
-
     if (alertMessage === "") {
         passwordInput.classList.remove("is-invalid");
         passwordInput.classList.add("is-valid");
         passwordAlert.classList.remove("text-danger");
         passwordAlert.classList.add("text-success");
-        passwordAlert.innerHTML = "Password is strong!";
+        passwordAlert.innerHTML = "✔️ Password is strong!";
     } else {
         passwordInput.classList.remove("is-valid");
         passwordInput.classList.add("is-invalid");
         passwordAlert.classList.remove("text-success");
         passwordAlert.classList.add("text-danger");
+        passwordAlert.innerHTML = alertMessage;
     }
 }
+
 
 // Caps Lock Detection
 function handleCapsLock(event, inputId, alertId) {
