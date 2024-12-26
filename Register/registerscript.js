@@ -105,8 +105,6 @@ function startTimer(duration) {
         }
     }, 1000);
 }
- 
-
 
 // Enable Verify button if email is valid
  emailInput.addEventListener("input", () => {
