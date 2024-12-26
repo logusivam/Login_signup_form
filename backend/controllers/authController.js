@@ -265,7 +265,7 @@ exports.sendPassword = async (req, res) => {
 };
  */
 
-/* update password for the forget-password page */
+/* update password for the forget-password page starts*/
 // Update Password After Verification
 exports.updatePassword = async (req, res) => {
     const { email, newPassword } = req.body;
@@ -275,20 +275,20 @@ exports.updatePassword = async (req, res) => {
         if (!email || !newPassword) {
             return res.status(400).json({ message: 'Email and new password are required.' });
         }
-
+        
         // Find user by email
         const user = await User.findOne({ email });
         if (!user) {
             return res.status(404).json({ message: 'User not found.' });
         }
-
+        
         // Hash the new password
         const hashedPassword = await bcrypt.hash(newPassword, 10);
-
+        
         // Update user's password
         user.password = hashedPassword;
         await user.save();
-
+        
         res.status(200).json({ message: 'Password updated successfully.' });
     } catch (error) {
         console.error('Error updating password:', error);
@@ -296,3 +296,4 @@ exports.updatePassword = async (req, res) => {
     }
 };
 
+/* update password for the forget-password page ends*/
