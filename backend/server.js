@@ -14,7 +14,7 @@ const path = require('path'); // Add this to handle file paths
 
 // Middleware
 app.use(bodyParser.json());
-app.use(express.json());
+app.use(express.json()); // Parse JSON bodies
 
 // Routes
 app.use('/api/auth', authRoutes);
@@ -44,8 +44,6 @@ app.get('/api/countries', (req, res) => {
     }));
     res.json(countryData);
 });
-
-
 
 // Start Server
 app.listen(PORT, () => {

@@ -22,10 +22,7 @@ router.get('/protected', verifyToken, (req, res) => {
 
 // Forget Password Routes
 
-router.post('/forget-password/send-otp', (req, res) => {
-    console.log('Request received for /forget-password/send-otp');
-    sendForgetPasswordOtp(req, res);
-});
+router.post('/forget-password/send-otp', sendForgetPasswordOtp); 
 
 router.post('/forget-password/verify-otp', verifyForgetPasswordOtp);
 router.post('/forget-password/send-password', sendPassword);
