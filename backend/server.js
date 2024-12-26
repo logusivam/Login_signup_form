@@ -12,6 +12,10 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const path = require('path'); // Add this to handle file paths 
 
+// Middleware
+app.use(bodyParser.json());
+app.use(express.json());
+
 // Routes
 app.use('/api/auth', authRoutes);
 
@@ -41,9 +45,6 @@ app.get('/api/countries', (req, res) => {
     res.json(countryData);
 });
 
-// Middleware
-app.use(bodyParser.json());
-app.use(express.json());
 
 
 // Start Server
