@@ -108,7 +108,7 @@ exports.loginUser = async (req, res) => {
 };
 
 
-
+/* 
 // Send OTP
 exports.sendOtp = async (req, res) => {
     const { email } = req.body;
@@ -182,7 +182,7 @@ exports.resendOtp = async (req, res) => {
         console.error('Error resending OTP:', error.message || error);
         res.status(500).json({ message: 'Failed to resend OTP.', error: error.message });
     }
-};
+}; */
 /* 
 // Step 1: Verify Email and Send OTP
 exports.sendForgetPasswordOtp = async (req, res) => {
