@@ -81,6 +81,9 @@ verifyOtpBtn.addEventListener('click', async () => {
             newPasswordSection.classList.remove('hidden');
             statusText.style.color = 'green'; // Success message in green
             /* sendPasswordBtn.disabled = false; */
+            otpInput.forEach(input => input.disabled = false);
+            verifyOtpBtn.classList.remove('enabled');
+            verifyOtpBtn.disabled = true;
         } else {
             statusText.style.color = 'red'; // Error message in red
         }
