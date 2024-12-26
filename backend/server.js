@@ -7,6 +7,10 @@ const authRoutes = require('./routes/auth');
 const { countries } = require('countries-list'); 
 
 dotenv.config();
+
+// Routes
+app.use('/api/auth', authRoutes);
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 const path = require('path'); // Add this to handle file paths 
@@ -41,9 +45,6 @@ app.get('/api/countries', (req, res) => {
 app.use(bodyParser.json());
 app.use(express.json());
 
-
-// Routes
-app.use('/api/auth', authRoutes);
 
 // Start Server
 app.listen(PORT, () => {
