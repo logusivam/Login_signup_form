@@ -242,6 +242,7 @@ exports.verifyForgetPasswordOtp = async (req, res) => {
     }
 };
 
+/* 
 // Step 3: Send Password via Email
 exports.sendPassword = async (req, res) => {
     const { email } = req.body;
@@ -260,3 +261,4 @@ exports.sendPassword = async (req, res) => {
         res.status(500).json({ message: 'Failed to send password.' });
     }
 };
+ */
