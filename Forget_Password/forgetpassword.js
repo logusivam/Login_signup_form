@@ -77,7 +77,7 @@ verifyOtpBtn.addEventListener('click', async () => {
         statusText.textContent = data.message;
 
         if (response.ok) {
-            document.getElementById('newPasswordSection').style.display = 'block';
+            newPasswordSection.classList.remove('hidden');
             statusText.style.color = 'green'; // Success message in green
             sendPasswordBtn.disabled = false;
         } else {
