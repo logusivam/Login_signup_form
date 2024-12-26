@@ -126,6 +126,6 @@ sendPasswordBtn.addEventListener('click', async () => {
 });
  */
 
-
+/* password update for the forget-password page starts */
 
 
