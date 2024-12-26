@@ -6,9 +6,9 @@ const router = express.Router();
 const verifyToken = require('../utils/authMiddleware');
 
 router.post('/signup', signup);
-/* router.post('/send-otp', sendOtp);
+router.post('/send-otp', sendOtp);
 router.post('/verify-otp', verifyOtp);
-router.post('/resend-otp', resendOtp); */
+router.post('/resend-otp', resendOtp);
 
 
 // login route 
