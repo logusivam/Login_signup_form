@@ -36,6 +36,7 @@ otpInput.forEach((input, index) => {
     });
 });
 
+//password toggle
 togglePassword.addEventListener('click', () => {
     const type = newPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
     newPasswordInput.setAttribute('type', type);
@@ -44,6 +45,94 @@ togglePassword.addEventListener('click', () => {
     togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
 });
 
+//validate password
+function validatePassword() {
+    const passwordInput = document.getElementById("newPassword");
+    const passwordAlert = document.getElementById("passwordAlert");
+    const password = passwordInput.value;
+
+    // Define regular expressions for the password rules
+    const lengthCheck = /.{8,}/;  // At least 8 characters
+    const uppercaseCheck = /[A-Z]/;  // At least one uppercase
+    const lowercaseCheck = /[a-z]/;  // At least one lowercase
+    const numericCheck = /[0-9]/; // At least one numeric value
+    const allowedSpecialCharCheck = /[^\w\d!@#\$%^&*]/;  // Excluded special characters
+    const specialCharCheck = /[!@#\$%^&*]/;  // Only allowed special characters
+    
+    let alertMessage = "";
+
+    // Rule 1: Length check
+    if (!lengthCheck.test(password)) {
+        alertMessage += "• Password must be at least 8 characters long.<br>";
+    }
+
+    // Rule 2: Uppercase letter check
+    if (!uppercaseCheck.test(password)) {
+        alertMessage += "• Password must contain at least one uppercase letter.<br>";
+    }
+
+    // Rule 3: Lowercase letter check
+    if (!lowercaseCheck.test(password)) {
+        alertMessage += "• Password must contain at least one lowercase letter.<br>";
+    }
+
+    // Rule 4: Numeric value check
+    if (!numericCheck.test(password)) {
+        alertMessage += "• Password must contain at least one numeric value.<br>";
+    }
+
+    // Rule 5: Special character check
+    if (!specialCharCheck.test(password)) {
+        alertMessage += "• Password must contain at least one special character (!, @, #, $, %, ^, &, *).<br>";
+    }
+
+    // Rule 6: Disallowed special characters check
+    if (allowedSpecialCharCheck.test(password)) {
+        alertMessage += "• Password contains disallowed special characters.<br>";
+    }
+
+    // Update the alert message below the input field
+    passwordAlert.innerHTML = alertMessage;
+
+    // Change border color for visual feedback
+    if (alertMessage === "") {
+        passwordInput.classList.remove("is-invalid");
+        passwordInput.classList.add("is-valid");
+        passwordAlert.classList.remove("text-danger");
+        passwordAlert.classList.add("text-success");
+        passwordAlert.innerHTML = "Password is strong!";
+    } else {
+        passwordInput.classList.remove("is-valid");
+        passwordInput.classList.add("is-invalid");
+        passwordAlert.classList.remove("text-success");
+        passwordAlert.classList.add("text-danger");
+    }
+}
+
+// Function to detect Caps Lock and show alert
+function handleCapsLock(event, inputId, alertId) {
+    let capsLockAlert = document.getElementById(alertId);
+
+    // Safeguard: Ensure capsLockAlert exists
+    if (!capsLockAlert) {
+        console.error(`Alert element with ID "${alertId}" not found.`);
+        return;
+    }
+
+    // Safeguard: Check if event.getModifierState exists
+    if (typeof event.getModifierState === "function") {
+        // Check if Caps Lock is on or off
+        if (event.getModifierState("CapsLock")) {
+            capsLockAlert.textContent = "Caps Lock is ON";
+            capsLockAlert.classList.add("visible");
+        } else {
+            capsLockAlert.textContent = "Caps Lock is OFF";
+            capsLockAlert.classList.remove("visible");
+        }
+    } else {
+        console.warn("getModifierState is not supported in this browser.");
+    }
+}
 
 /* otp verification for the forget-password page starts */
 // Send OTP
