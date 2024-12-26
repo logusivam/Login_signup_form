@@ -24,7 +24,7 @@ userSchema.methods.matchPassword = async function(enteredPassword) {
 
  module.exports = mongoose.model('User', userSchema);
 
-/* const otpSchema = new mongoose.Schema({
+const otpSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     otp: { type: String, required: true }, // Hashed OTP
     expiresAt: { type: Date, required: true },
@@ -33,4 +33,3 @@ userSchema.methods.matchPassword = async function(enteredPassword) {
 const OTP = mongoose.model('Otp', otpSchema);
 
 module.exports = OTP;
- */

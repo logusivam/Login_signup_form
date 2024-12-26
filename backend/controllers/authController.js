@@ -184,7 +184,7 @@ exports.resendOtp = async (req, res) => {
     }
 }; */
 
-/* 
+
 // Step 1: Verify Email and Send OTP
 exports.sendForgetPasswordOtp = async (req, res) => {
     const { email } = req.body;
@@ -258,4 +258,4 @@ exports.sendPassword = async (req, res) => {
         console.error(error);
         res.status(500).json({ message: 'Failed to send password.' });
     }
-}; */
+};
