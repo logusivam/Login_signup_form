@@ -50,6 +50,7 @@ verifyBtn.addEventListener('click', async () => {
         if (response.ok) {
             statusText.style.color = 'green'; // Success message in green
             otpInput.forEach(input => input.disabled = false);
+            verifyOtpBtn.classList.add('enabled');
             verifyOtpBtn.disabled = false;
         } else {
             statusText.style.color = 'red'; // Error message in red
