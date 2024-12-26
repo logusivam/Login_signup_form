@@ -49,6 +49,7 @@ verifyBtn.addEventListener('click', async () => {
         if (response.ok) {
             otpInput.forEach(input => input.disabled = false);
             verifyOtpBtn.disabled = false;
+            verifyOtpBtn.enabled = true;
         }
     } catch (error) {
         console.error(error);
