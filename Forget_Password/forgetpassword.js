@@ -50,6 +50,8 @@ verifyBtn.addEventListener('click', async () => {
             otpInput.forEach(input => input.disabled = false);
             verifyOtpBtn.disabled = false;
             verifyOtpBtn.enabled = true;
+            statusText.classList.add('text-success');
+            statusText.style.display = 'block';
         }
     } catch (error) {
         console.error(error);
