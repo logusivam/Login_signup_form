@@ -7,6 +7,7 @@ const statusText = document.getElementById('status');
 const newPasswordSection = document.getElementById('newPasswordSection');
 const submitPasswordBtn = document.getElementById('submitPasswordBtn');
 const newPasswordInput = document.getElementById('newPassword');
+const togglePassword = document.getElementById('togglePassword');
 
 // Enable Verify Button if the Email is Valid
 emailInput.addEventListener('input', () => {
@@ -34,6 +35,9 @@ otpInput.forEach((input, index) => {
         }
     });
 });
+
+
+
 
 /* otp verification for the forget-password page starts */
 // Send OTP
