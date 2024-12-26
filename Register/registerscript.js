@@ -216,6 +216,7 @@ async function resendOtp() {
 resendOtpButton.addEventListener('click', resendOtp);
  */
 
+
 /*let generatedOtp = "";  // To store OTP
 // Handle Verify Button Click
 verifyButton.addEventListener("click", () => {
