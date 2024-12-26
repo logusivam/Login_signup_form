@@ -24,7 +24,8 @@ router.get('/protected', verifyToken, (req, res) => {
 
 router.post('/forget-password/send-otp', sendForgetPasswordOtp); 
 
-router.post('/forget-password/verify-otp', verifyForgetPasswordOtp);/* 
+router.post('/forget-password/verify-otp', verifyForgetPasswordOtp);
+/* 
 router.post('/forget-password/send-password', sendPassword); */
 
 module.exports = router;
