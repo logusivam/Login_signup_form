@@ -107,23 +107,23 @@ exports.loginUser = async (req, res) => {
     }
 };
 
-/* otp verification for the sign-up page */
+/* otp verification for the sign-up page starts */
 // Send OTP
 exports.sendOtp = async (req, res) => {
     const { email } = req.body;
-
+    
     try {
         const otp = generateSecureOtp();
         const hashedOtp = hashOtp(otp);
-
+        
         await Otp.findOneAndUpdate(
             { email },
             { otp: hashedOtp, expiresAt: Date.now() + 5 * 60 * 1000 }, // Expires in 5 minutes
             { upsert: true, new: true }
         );
-
+        
         await sendOtpEmail(email, otp); // Send OTP via email utility
-
+        
         res.status(200).json({ message: 'OTP sent successfully!' });
     } catch (error) {
         console.error(error);
@@ -134,25 +134,25 @@ exports.sendOtp = async (req, res) => {
 // Verify OTP
 exports.verifyOtp = async (req, res) => {
     const { email, otp } = req.body;
-
+    
     try {
         const record = await Otp.findOne({ email });
-
+        
         if (!record) {
             return res.status(400).json({ message: 'OTP not found.' });
         }
-
+        
         const hashedOtp = hashOtp(otp);
         if (hashedOtp !== record.otp) {
             return res.status(400).json({ message: 'Invalid OTP.' });
         }
- 
+        
         if (Date.now() > record.expiresAt) {
             return res.status(400).json({ message: 'OTP expired.' });
         }
-
+        
         await Otp.deleteOne({ email }); // Remove OTP after successful verification
-
+        
         res.status(200).json({ message: 'OTP verified successfully!' });
     } catch (error) {
         console.error(error);
@@ -167,34 +167,36 @@ exports.resendOtp = async (req, res) => {
     try {
         const otp = generateSecureOtp();
         const hashedOtp = hashOtp(otp);
-
+        
         await Otp.findOneAndUpdate(
             { email },
             { otp: hashedOtp, expiresAt: Date.now() + 5 * 60 * 1000 }, // OTP expires in 5 minutes
             { upsert: true, new: true }
         );
-
+        
         await sendOtpEmail(email, otp); // Send OTP via email utility
-
+        
         res.status(200).json({ message: 'OTP resent successfully!' });
     } catch (error) {
         console.error('Error resending OTP:', error.message || error);
         res.status(500).json({ message: 'Failed to resend OTP.', error: error.message });
     }
 };
+/* otp verification for the sign-up page ends */
 
 
+/* otp verification for the forget-password page starts */
 // Step 1: Verify Email and Send OTP
 exports.sendForgetPasswordOtp = async (req, res) => { 
     console.log('Request Body:', req.body); // Debug log
     const { email } = req.body;
-
+    
     try {
         const user = await User.findOne({ email });
         if (!user) {
             return res.status(404).json({ message: 'Email not found' });
         }
-
+        
         const otp = generateSecureOtp();
         const hashedOtp = hashOtp(otp);
 
@@ -203,9 +205,9 @@ exports.sendForgetPasswordOtp = async (req, res) => {
             { otp: hashedOtp, expiresAt: Date.now() + 5 * 60 * 1000 },
             { upsert: true, new: true }
         );
-
+        
         await sendOtpEmail(email, otp); // Send plain OTP via email
-
+        
         res.status(200).json({ message: 'OTP sent to your email.' });
     } catch (error) {
         console.error(error);
@@ -240,6 +242,7 @@ exports.verifyForgetPasswordOtp = async (req, res) => {
         res.status(500).json({ message: 'Failed to verify OTP.' });
     }
 };
+/* otp verification for the forget-password page ends */
 
 /* 
 // Step 3: Send Password via Email
@@ -261,3 +264,35 @@ exports.sendPassword = async (req, res) => {
     }
 };
  */
+
+/* update password for the forget-password page */
+// Update Password After Verification
+exports.updatePassword = async (req, res) => {
+    const { email, newPassword } = req.body;
+
+    try {
+        // Check if email and newPassword are provided
+        if (!email || !newPassword) {
+            return res.status(400).json({ message: 'Email and new password are required.' });
+        }
+
+        // Find user by email
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found.' });
+        }
+
+        // Hash the new password
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+        // Update user's password
+        user.password = hashedPassword;
+        await user.save();
+
+        res.status(200).json({ message: 'Password updated successfully.' });
+    } catch (error) {
+        console.error('Error updating password:', error);
+        res.status(500).json({ message: 'Failed to update password.' });
+    }
+};
+
