@@ -47,12 +47,16 @@ verifyBtn.addEventListener('click', async () => {
         statusText.textContent = data.message;
 
         if (response.ok) {
+            statusText.style.color = 'green'; // Success message in green
             otpInput.forEach(input => input.disabled = false);
             verifyOtpBtn.disabled = false;
+        } else {
+            statusText.style.color = 'red'; // Error message in red
         }
     } catch (error) {
         console.error(error);
         statusText.textContent = 'Error sending OTP';
+        statusText.style.color = 'red'; // Catch block error in red
     }
 });
 
