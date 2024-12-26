@@ -90,6 +90,7 @@ verifyOtpBtn.addEventListener('click', async () => {
     }
 });
 
+/* 
 // Send Password
 sendPasswordBtn.addEventListener('click', async () => {
     const email = emailInput.value;
@@ -115,4 +116,4 @@ sendPasswordBtn.addEventListener('click', async () => {
         statusText.style.color = 'red'; // Error message in red
     }
 });
-
+ */
