@@ -4,6 +4,7 @@ const otpInput = document.querySelectorAll('.otp-digit');
 const verifyOtpBtn = document.getElementById('verifyOtpBtn');
 const sendPasswordBtn = document.getElementById('sendPasswordBtn');
 const statusText = document.getElementById('status');
+const newPasswordSection = document.getElementById('newPasswordSection');
 
 // Enable Verify Button if the Email is Valid
 emailInput.addEventListener('input', () => {
@@ -113,3 +114,4 @@ sendPasswordBtn.addEventListener('click', async () => {
         statusText.style.color = 'red'; // Error message in red
     }
 });
+
