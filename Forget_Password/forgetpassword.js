@@ -63,7 +63,7 @@ verifyBtn.addEventListener('click', async () => {
 // Verify OTP
 verifyOtpBtn.addEventListener('click', async () => {
     const email = emailInput.value;
-    const otp = otpInput.value;
+    const otp = Array.from(otpInput).map(input => input.value).join('');
 
     try {
         let response = await fetch('http://localhost:5000/api/auth/forget-password/verify-otp', {
