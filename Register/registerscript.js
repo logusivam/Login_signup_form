@@ -51,8 +51,8 @@ aadhaarInput.addEventListener("input", function (e) {
     e.target.value = formattedValue.trim();
 });
 
-//aadhaar verify button
-/* function enableVerifyButton() {
+/*//aadhaar verify button
+ function enableVerifyButton() {
     const aadhaarInput = document.getElementById('aadhaar');
     const verifyButton = document.getElementById('verifyAadhaar');
 
