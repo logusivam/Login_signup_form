@@ -106,34 +106,25 @@ function startTimer(duration) {
     }, 1000);
 }
  
-/*let generatedOtp = ""; */ // To store OTP
+
 
 // Enable Verify button if email is valid
  emailInput.addEventListener("input", () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     verifyButton.disabled = !emailRegex.test(emailInput.value);
 });
-/*
-// Handle Verify Button Click
-verifyButton.addEventListener("click", () => {
-    generatedOtp = Math.floor(1000 + Math.random() * 9000).toString(); // Generate OTP
-    localStorage.setItem("otp", generatedOtp); // Store in localStorage
-    console.log("Generated OTP:", generatedOtp);
 
-    otpSection.style.display = "block"; // Show OTP section
-    otpMessage.style.display = "none"; // Hide previous messages
-    otpMessage.textContent = "";
-}); */
+
 
 //send password through gmail start
 verifyButton.addEventListener('click', async () => {
     const email = document.getElementById('email').value;
-
+    
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
         alert('Please enter a valid email.');
         return;
     }
-
+    
     try {
         const response = await fetch('http://localhost:5000/api/auth/send-otp', {
             method: 'POST',
@@ -224,6 +215,18 @@ async function resendOtp() {
 }
 resendOtpButton.addEventListener('click', resendOtp);
 
+/*let generatedOtp = ""; */ // To store OTP
+/*
+// Handle Verify Button Click
+verifyButton.addEventListener("click", () => {
+    generatedOtp = Math.floor(1000 + Math.random() * 9000).toString(); // Generate OTP
+    localStorage.setItem("otp", generatedOtp); // Store in localStorage
+    console.log("Generated OTP:", generatedOtp);
+
+    otpSection.style.display = "block"; // Show OTP section
+    otpMessage.style.display = "none"; // Hide previous messages
+    otpMessage.textContent = "";
+}); */
 //send password to gmail end
 
 // for local storage otp verification
