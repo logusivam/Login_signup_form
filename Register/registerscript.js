@@ -115,7 +115,7 @@ function startTimer(duration) {
 });
 
 
-/* 
+
 //send password through gmail start
 verifyButton.addEventListener('click', async () => {
     const email = document.getElementById('email').value;
@@ -214,7 +214,7 @@ async function resendOtp() {
     }
 }
 resendOtpButton.addEventListener('click', resendOtp);
- */
+
 
 
 /*let generatedOtp = "";  // To store OTP
