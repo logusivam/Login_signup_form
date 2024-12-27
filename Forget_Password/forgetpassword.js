@@ -240,7 +240,7 @@ submitPasswordBtn.addEventListener('click', async () => {
             statusText.style.color = 'green'; // Success message in green
             
         } else {
-            alert(`Error: ${data.message}`);
+            statusText.style.color = 'red'; // Error message in red
         }
     } catch (error) {
         console.error('Failed to update password:', error);
