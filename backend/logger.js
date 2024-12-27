@@ -5,4 +5,4 @@ function logDebug(message) {
     }
 }
 
-export default { logDebug };
+module.exports = { logDebug };
