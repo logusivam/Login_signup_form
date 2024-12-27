@@ -175,6 +175,7 @@ verifyOtpBtn.addEventListener('click', async () => {
             emailInput.classList.add('disabled-input');
             verifyBtn.classList.remove('enabled');
             verifyBtn.disabled = true;
+            submitPasswordBtn.disabled = false;
         } else {
             statusText.style.color = 'red'; // Error message in red
         }
@@ -239,6 +240,7 @@ submitPasswordBtn.addEventListener('click', async () => {
         if (response.ok) {
             statusText.style.color = 'green'; // Success message in green
             newPasswordInput.disabled = true;
+            submitPasswordBtn.disabled = true;
         } else {
             statusText.style.color = 'red'; // Error message in red
         }
