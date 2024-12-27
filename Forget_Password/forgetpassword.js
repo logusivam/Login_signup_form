@@ -170,8 +170,7 @@ verifyOtpBtn.addEventListener('click', async () => {
             /* sendPasswordBtn.disabled = false; */
             otpInput.forEach(input => input.disabled = true);
             verifyOtpBtn.classList.remove('enabled');
-            verifyOtpBtn.disabled = true;
-            emailInput.enabled = false;
+            verifyOtpBtn.disabled = true; 
         } else {
             statusText.style.color = 'red'; // Error message in red
         }
