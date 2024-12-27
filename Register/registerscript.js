@@ -5,7 +5,7 @@ const isDev = false;
             console.log(message);
         }
     }
-    logDebug('Debugging in development mode');console.log('isDev is:', isDev);
+    logDebug('Debugging in development mode');
     if (!isDev) {
         console.log = () => {};
         console.warn = () => {};
