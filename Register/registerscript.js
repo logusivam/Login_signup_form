@@ -498,6 +498,15 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
         return; // Stop the function here
     }
 
+    // Check if email is verified
+    const emailInput = document.getElementById('email');
+    const isEmailVerified = emailInput.disabled; // Assuming email gets disabled after OTP verification
+
+    if (!isEmailVerified) {
+        messageContainer.innerHTML = `<div class="text-danger mt-2">Please verify your email by entering the OTP before submitting the form.</div>`;
+        return; // Stop the function here
+    }
+
     // Capture form data
     const formData = {
         firstName: document.getElementById('firstName').value,
