@@ -130,6 +130,7 @@ function startTimer(duration) {
 //send password through gmail start
 verifyButton.addEventListener('click', async () => {
     const email = document.getElementById('email').value;
+    startTimer(countdownDuration);
     
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
         alert('Please enter a valid email.');
