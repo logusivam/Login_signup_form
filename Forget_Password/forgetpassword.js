@@ -165,18 +165,18 @@ verifyOtpBtn.addEventListener('click', async () => {
         statusText.textContent = data.message;
         
         if (response.ok) {
-            newPasswordSection.classList.remove('hidden');
-            statusText.style.color = 'green'; // Success message in green
-            /* sendPasswordBtn.disabled = false; */
-            otpInput.forEach(input => input.disabled = true);
-            verifyOtpBtn.classList.remove('enabled');
-            verifyOtpBtn.disabled = true; 
-            emailInput.disabled = true; 
-            emailInput.classList.add('disabled-input');
             verifyBtn.classList.remove('enabled');
             verifyBtn.disabled = true;
+            emailInput.disabled = true; 
+            emailInput.classList.add('disabled-input');
+            otpInput.forEach(input => input.disabled = true);
+            verifyOtpBtn.disabled = true; 
+            newPasswordSection.classList.remove('hidden');
+            verifyOtpBtn.classList.remove('enabled');
             submitPasswordBtn.classList.add('enabled');
             submitPasswordBtn.disabled = false;
+            statusText.style.color = 'green'; // Success message in green
+            /* sendPasswordBtn.disabled = false; */
         } else {
             statusText.style.color = 'red'; // Error message in red
         }
