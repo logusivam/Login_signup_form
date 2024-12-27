@@ -259,6 +259,11 @@ submitPasswordBtn.addEventListener('click', async () => {
             statusText.style.color = 'green'; // Success message in green
         } else {
             statusText.style.color = 'red'; // Error message in red
+
+            // Alert specifically if the password is the same
+            if (data.message.includes('New password cannot be the same')) {
+                statusText.textContent ='Your new password cannot be the same as the old password. Please choose a different password.';
+            }
         }
     } catch (error) {
         console.error('Failed to update password:', error); 
