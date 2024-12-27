@@ -8,7 +8,6 @@ const { countries } = require('countries-list');
 const { logDebug } = require('./logger');
 
 logDebug('Server is running in development mode');
-console.log("hi");
 dotenv.config();
 
 const app = express();
