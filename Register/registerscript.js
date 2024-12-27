@@ -1,16 +1,14 @@
 const isDev = false;
 
     function logDebug(message) {
-        if (isDev) {
-            console.log(message);
+        if (!isDev) {
+            console.log = () => {};
+            console.warn = () => {};
+            console.error = () => {};
         }
     }
     logDebug('Debugging in development mode');
-    if (!isDev) {
-        console.log = () => {};
-        console.warn = () => {};
-        console.error = () => {};
-    }
+    
     
 
 //country list 
