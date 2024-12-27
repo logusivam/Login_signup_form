@@ -45,6 +45,7 @@ app.get('/api/countries', (req, res) => {
     res.json(countryData);
 });
 
+
 // Start Server
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
