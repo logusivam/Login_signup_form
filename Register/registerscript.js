@@ -504,6 +504,7 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
 
     if (!isEmailVerified) {
         messageContainer.innerHTML = `<div class="text-danger mt-2">Please verify your email by entering the OTP before submitting the form.</div>`;
+        emailInput.focus();
         return; // Stop the function here
     }
 
