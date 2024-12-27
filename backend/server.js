@@ -5,7 +5,7 @@ const connectDB = require('./utils/db');
 const authRoutes = require('./routes/auth');
 //for country detail 
 const { countries } = require('countries-list'); 
-const { logDebug } = require('./logger');
+const { logDebug } = require('./logger').default;
 
 logDebug('Server is running in development mode');
 console.log("hi");
