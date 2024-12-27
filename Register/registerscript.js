@@ -171,6 +171,7 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
             otpMessage.classList.remove('text-danger');
             otpMessage.classList.add('text-success');
             verifyButton.disabled = true;
+            emailInput.disabled = true;
         } else {
             otpMessage.textContent = result.message;
             otpMessage.classList.add('text-danger');
