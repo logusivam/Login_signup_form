@@ -6,7 +6,12 @@ const isDev = false;
         }
     }
     logDebug('Debugging in development mode');console.log('isDev is:', isDev);
-
+    if (!isDev) {
+        console.log = () => {};
+        console.warn = () => {};
+        console.error = () => {};
+    }
+    
 
 //country list 
 document.addEventListener('DOMContentLoaded', () => {
