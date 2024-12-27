@@ -96,9 +96,9 @@ let countdown;
 let countdownDuration = 60; // 60 seconds
 
 // Disable resend button initially
-window.onload = () => {
+/* window.onload = () => {
     startTimer(countdownDuration);
-};
+}; */
 
 // Start Countdown Timer
 function startTimer(duration) {
