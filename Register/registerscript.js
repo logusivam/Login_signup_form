@@ -1,3 +1,11 @@
+const isDev = true; // Set manually
+    function logDebug(message) {
+        if (isDev) {
+            console.log(message);
+        }
+    }
+    logDebug('Debugging in development mode');
+
 //country list 
 document.addEventListener('DOMContentLoaded', () => {
     // Fetch country data from the server
