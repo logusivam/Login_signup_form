@@ -1,4 +1,4 @@
-const isDev = true; // Set manually
+const isDev = false; // Set manually
     function logDebug(message) {
         if (isDev) {
             console.log(message);
