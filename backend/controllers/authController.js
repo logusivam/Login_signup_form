@@ -3,7 +3,7 @@ const User = require('../models/User');
 const { generateSecureOtp, hashOtp,  sendOtpEmail } = require('../utils/otp');
 const jwt = require('jsonwebtoken');
 const Otp = require('../models/Otp'); // OTP schema 
-const { logDebug } = require('./logger');
+const { logDebug } = require('../logger');
 
 logDebug('Server is running in development mode');
 
