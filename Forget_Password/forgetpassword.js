@@ -220,8 +220,24 @@ submitPasswordBtn.addEventListener('click', async () => {
     const email = emailInput.value.trim();
     const newPassword = newPasswordInput.value.trim();
 
-    if (!email || !newPassword) {
-        alert('Please enter both email and new password.');
+    // Validation Steps
+    if (!email) {
+        statusText.textContent = 'Please enter your email first.';
+        statusText.style.color = 'red';
+        emailInput.focus();
+        return;
+    }
+
+    if (!emailInput.disabled) {
+        statusText.textContent = 'Please verify your email via OTP first.';
+        statusText.style.color = 'red';
+        return;
+    }
+
+    if (!newPassword) {
+        statusText.textContent = 'Please enter a new password.';
+        statusText.style.color = 'red';
+        newPasswordInput.focus();
         return;
     }
 
