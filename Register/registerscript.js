@@ -5,7 +5,8 @@ const isDev = false;
             console.log(message);
         }
     }
-    logDebug('Debugging in development mode');
+    logDebug('Debugging in development mode');console.log('isDev is:', isDev);
+
 
 //country list 
 document.addEventListener('DOMContentLoaded', () => {
