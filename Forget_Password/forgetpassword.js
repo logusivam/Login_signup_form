@@ -255,10 +255,10 @@ submitPasswordBtn.addEventListener('click', async () => {
         statusText.textContent = data.message;
 
         if (response.ok) {
-            statusText.style.color = 'green'; // Success message in green
             newPasswordInput.disabled = true;
             submitPasswordBtn.classList.remove('enabled');
             submitPasswordBtn.disabled = true;
+            statusText.style.color = 'green'; // Success message in green
         } else {
             statusText.style.color = 'red'; // Error message in red
         }
