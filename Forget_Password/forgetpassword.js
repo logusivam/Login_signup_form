@@ -269,6 +269,7 @@ submitPasswordBtn.addEventListener('click', async () => {
         console.error('Failed to update password:', error); 
         statusText.textContent = 'Failed to update password. Please try again later.';
         statusText.style.color = 'red'; // Error in red for exception
+        submitPasswordBtn.disabled = false;
     }
 });
 
