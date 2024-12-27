@@ -234,8 +234,11 @@ submitPasswordBtn.addEventListener('click', async () => {
         });
 
         const data = await response.json();
+        statusText.textContent = data.message;
+
         if (response.ok) {
-            alert(data.message);
+            statusText.style.color = 'green'; // Success message in green
+            
         } else {
             alert(`Error: ${data.message}`);
         }
