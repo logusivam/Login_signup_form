@@ -283,16 +283,21 @@ submitPasswordBtn.addEventListener('click', async () => {
                 clearStatusTextAfterDelay(statusText);
             }
         }    
-    // Reset the button text and re-enable it after 3 seconds (optional)
-    setTimeout(() => {
-        submitPasswordBtn.textContent = 'Submitted'; 
-    }, 2000); // Adjust the delay as needed
+        // Reset the button text and re-enable it after 3 seconds (optional)
+        setTimeout(() => {
+            submitPasswordBtn.textContent = 'Submitted'; 
+        }, 2000); // Adjust the delay as needed
     } catch (error) {
         console.error('Failed to update password:', error); 
         statusText.textContent = 'Failed to update password. Please try again later.';
         statusText.style.color = 'red'; // Error in red for exception
         clearStatusTextAfterDelay(statusText);
         submitPasswordBtn.disabled = false;
+
+        setTimeout(() => {
+            submitPasswordBtn.textContent = 'Submit';
+            submitPasswordBtn.disabled = false;
+        }, 3000); // Adjust the delay as needed
     }
 
 });
