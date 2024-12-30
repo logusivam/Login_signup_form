@@ -1,5 +1,5 @@
- //const isDev = window.location.hostname === 'localhost';
- const isDev = false; 
+const isDev = window.location.hostname === 'localhost';
+//const isDev = false; 
 
     function logDebug(message) {
         if (!isDev) {
