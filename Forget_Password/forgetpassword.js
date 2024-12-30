@@ -141,10 +141,6 @@ verifyBtn.addEventListener('click', async () => {
             otpInput.forEach(input => input.disabled = false);
             verifyOtpBtn.classList.add('enabled');
             verifyOtpBtn.disabled = false;
-            // Hide status text after 5 seconds
-setTimeout(() => {
-    statusText.textContent = '';
-}, 5000);
         } else {
             statusText.style.color = 'red'; // Error message in red
         }
