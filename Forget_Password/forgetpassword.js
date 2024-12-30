@@ -254,6 +254,7 @@ submitPasswordBtn.addEventListener('click', async () => {
     }
 
         submitPasswordBtn.textContent = 'Submitting...';
+        submitPasswordBtn.disabled = true;
 
     try {
         const response = await fetch('http://localhost:5000/api/auth/update-password', {
