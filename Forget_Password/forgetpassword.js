@@ -276,9 +276,9 @@ submitPasswordBtn.addEventListener('click', async () => {
             clearStatusTextAfterDelay(statusText);
 
             // Reset the button text 
-        setTimeout(() => {
-            submitPasswordBtn.textContent = 'Submitted'; 
-        }, 2000); // Adjust the delay as needed
+            setTimeout(() => {
+                submitPasswordBtn.textContent = 'Submitted'; 
+            }, 2000); // Adjust the delay as needed
         } else {
             statusText.style.color = 'red'; // Error message in red
             clearStatusTextAfterDelay(statusText);
