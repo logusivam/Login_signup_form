@@ -282,12 +282,14 @@ submitPasswordBtn.addEventListener('click', async () => {
             // Alert specifically if the password is the same
             if (data.message.includes('New password cannot be the same')) {
                 statusText.textContent ='Your new password cannot be the same as the old password. Please choose a different password.';
+                clearStatusTextAfterDelay(statusText);
             }
         }
     } catch (error) {
         console.error('Failed to update password:', error); 
         statusText.textContent = 'Failed to update password. Please try again later.';
         statusText.style.color = 'red'; // Error in red for exception
+        clearStatusTextAfterDelay(statusText);
         submitPasswordBtn.disabled = false;
     }
 });
