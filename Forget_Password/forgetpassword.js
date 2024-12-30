@@ -9,10 +9,7 @@ const submitPasswordBtn = document.getElementById('submitPasswordBtn');
 const newPasswordInput = document.getElementById('newPassword');
 const togglePassword = document.getElementById('togglePassword');
 
-// Hide status text after 5 seconds
-setTimeout(() => {
-    statusText.textContent = '';
-}, 5000);
+
 
 // Enable Verify Button if the Email is Valid
 emailInput.addEventListener('input', () => {
@@ -144,6 +141,10 @@ verifyBtn.addEventListener('click', async () => {
             otpInput.forEach(input => input.disabled = false);
             verifyOtpBtn.classList.add('enabled');
             verifyOtpBtn.disabled = false;
+            // Hide status text after 5 seconds
+setTimeout(() => {
+    statusText.textContent = '';
+}, 5000);
         } else {
             statusText.style.color = 'red'; // Error message in red
         }
