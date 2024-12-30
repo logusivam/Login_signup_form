@@ -146,7 +146,7 @@ verifyBtn.addEventListener('click', async () => {
             otpInput.forEach(input => input.disabled = false);
             verifyOtpBtn.classList.add('enabled');
             verifyOtpBtn.disabled = false;
-            clearStatusTextAfterDelay(statusText);
+            clearStatusTextAfterDelay(statusText);  // To remove the statusText after 5 sec
         } else {
             statusText.style.color = 'red'; // Error message in red
         }
