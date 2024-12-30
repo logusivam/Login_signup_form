@@ -293,7 +293,8 @@ submitPasswordBtn.addEventListener('click', async () => {
                 submitPasswordBtn.textContent = 'Not Submitted'; 
                 submitPasswordBtn.disabled = false;
             }, 2000); // Adjust the delay as needed
-        }    
+        } 
+        submitPasswordBtn.textContent = 'Submit';   
         
     } catch (error) {
         console.error('Failed to update password:', error); 
