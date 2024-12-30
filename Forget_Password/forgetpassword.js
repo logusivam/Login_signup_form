@@ -9,9 +9,9 @@ const submitPasswordBtn = document.getElementById('submitPasswordBtn');
 const newPasswordInput = document.getElementById('newPassword');
 const togglePassword = document.getElementById('togglePassword');
 
-function clearStatusTextAfterDelay(statusText, delay = 5000) {
+function clearStatusTextAfterDelay(statusTextElement, delay = 5000) {
     setTimeout(() => {
-        statusText.textContent = '';
+        statusTextElement.textContent = '';
     }, delay);
 }
 
