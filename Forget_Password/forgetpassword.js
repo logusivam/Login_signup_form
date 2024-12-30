@@ -300,8 +300,6 @@ submitPasswordBtn.addEventListener('click', async () => {
                 statusText.textContent ='Your new password cannot be the same as the old password. Please choose a different password.';
                  
             }
-            const errorData = await response.json();
-            throw new Error(errorData.message || 'Failed to update password');
 
             // Reset the button text 
             setTimeout(() => {
@@ -313,7 +311,8 @@ submitPasswordBtn.addEventListener('click', async () => {
                 submitPasswordBtn.textContent = 'Submit'; 
                 submitPasswordBtn.disabled = false;
             }, 4000);  
-            
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Failed to update password');
              
         }  
         
