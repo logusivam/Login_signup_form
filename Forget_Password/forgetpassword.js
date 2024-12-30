@@ -295,8 +295,7 @@ submitPasswordBtn.addEventListener('click', async () => {
         submitPasswordBtn.disabled = false;
 
         setTimeout(() => {
-            submitPasswordBtn.textContent = 'Submit';
-            submitPasswordBtn.disabled = false;
+            submitPasswordBtn.textContent = 'Submit'; 
         }, 3000); // Adjust the delay as needed
     }
 
