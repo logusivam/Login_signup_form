@@ -4,7 +4,7 @@ const { signup, loginUser, sendOtp, verifyOtp,  resendOtp
 const { sendForgetPasswordOtp, verifyForgetPasswordOtp, updatePassword, sendPassword } = require('../controllers/authController'); 
 const router = express.Router();
 const verifyToken = require('../utils/authMiddleware');
-const { logDebug } = require('..logger/logger');
+const { logDebug } = require('../logger');
 
 //sign-up page 
 router.post('/signup', signup);
