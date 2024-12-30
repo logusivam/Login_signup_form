@@ -237,18 +237,21 @@ submitPasswordBtn.addEventListener('click', async () => {
         statusText.textContent = 'Please enter your email first.';
         statusText.style.color = 'red';
         emailInput.focus();
+        clearStatusTextAfterDelay(statusText);
         return;
     }
 
     if (!emailInput.disabled) {
         statusText.textContent = 'Please verify your email via OTP first.';
         statusText.style.color = 'red';
+        clearStatusTextAfterDelay(statusText);
         return;
     }
 
     if (!newPassword) {
         statusText.textContent = 'Please enter a new password.';
         statusText.style.color = 'red';
+        clearStatusTextAfterDelay(statusText);
         newPasswordInput.focus();
         return;
     }
@@ -271,8 +274,10 @@ submitPasswordBtn.addEventListener('click', async () => {
             submitPasswordBtn.disabled = true;
             submitPasswordBtn.textContent = 'Submitting...';
             statusText.style.color = 'green'; // Success message in green
+            clearStatusTextAfterDelay(statusText);
         } else {
             statusText.style.color = 'red'; // Error message in red
+            clearStatusTextAfterDelay(statusText);
 
             // Alert specifically if the password is the same
             if (data.message.includes('New password cannot be the same')) {
