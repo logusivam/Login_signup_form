@@ -254,7 +254,7 @@ submitPasswordBtn.addEventListener('click', async () => {
     }
 
         submitPasswordBtn.textContent = 'Submitting...';
-        
+
     try {
         const response = await fetch('http://localhost:5000/api/auth/update-password', {
             method: 'POST',
@@ -291,5 +291,10 @@ submitPasswordBtn.addEventListener('click', async () => {
         submitPasswordBtn.disabled = false;
     }
 });
+
+// Reset the button text and re-enable it after 3 seconds (optional)
+setTimeout(() => {
+    submitPasswordBtn.textContent = 'Submitted'; 
+}, 3000); // Adjust the delay as needed
 
 /* password update for the forget-password page ends */
