@@ -9,6 +9,11 @@ const submitPasswordBtn = document.getElementById('submitPasswordBtn');
 const newPasswordInput = document.getElementById('newPassword');
 const togglePassword = document.getElementById('togglePassword');
 
+// Hide status text after 5 seconds
+setTimeout(() => {
+    statusText.textContent = '';
+}, 5000);
+
 // Enable Verify Button if the Email is Valid
 emailInput.addEventListener('input', () => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
