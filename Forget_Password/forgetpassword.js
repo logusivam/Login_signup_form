@@ -264,12 +264,12 @@ submitPasswordBtn.addEventListener('click', async () => {
 
         const data = await response.json();
         statusText.textContent = data.message;
+        submitPasswordBtn.textContent = 'Submitting...';
 
         if (response.ok) {
             newPasswordInput.disabled = true;
             submitPasswordBtn.classList.add('disabled');
             submitPasswordBtn.disabled = true;
-            submitPasswordBtn.textContent = 'Submitting...';
             statusText.style.color = 'green'; // Success message in green
             clearStatusTextAfterDelay(statusText);
         } else {
