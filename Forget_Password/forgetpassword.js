@@ -9,6 +9,11 @@ const submitPasswordBtn = document.getElementById('submitPasswordBtn');
 const newPasswordInput = document.getElementById('newPassword');
 const togglePassword = document.getElementById('togglePassword');
 
+function clearStatusTextAfterDelay(statusText, delay = 5000) {
+    setTimeout(() => {
+        statusText.textContent = '';
+    }, delay);
+}
 
 
 // Enable Verify Button if the Email is Valid
@@ -141,6 +146,7 @@ verifyBtn.addEventListener('click', async () => {
             otpInput.forEach(input => input.disabled = false);
             verifyOtpBtn.classList.add('enabled');
             verifyOtpBtn.disabled = false;
+            clearStatusTextAfterDelay(statusText);
         } else {
             statusText.style.color = 'red'; // Error message in red
         }
@@ -148,6 +154,7 @@ verifyBtn.addEventListener('click', async () => {
         console.error(error);
         statusText.textContent = 'Error sending OTP';
         statusText.style.color = 'red'; // Catch block error in red
+        clearStatusTextAfterDelay(statusText);
     }
 });
 
