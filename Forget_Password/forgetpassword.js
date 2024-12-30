@@ -277,13 +277,16 @@ submitPasswordBtn.addEventListener('click', async () => {
         } else {
             statusText.style.color = 'red'; // Error message in red
             clearStatusTextAfterDelay(statusText);
-
             // Alert specifically if the password is the same
             if (data.message.includes('New password cannot be the same')) {
                 statusText.textContent ='Your new password cannot be the same as the old password. Please choose a different password.';
                 clearStatusTextAfterDelay(statusText);
             }
-        }
+        }    
+    // Reset the button text and re-enable it after 3 seconds (optional)
+    setTimeout(() => {
+        submitPasswordBtn.textContent = 'Submitted'; 
+    }, 2000); // Adjust the delay as needed
     } catch (error) {
         console.error('Failed to update password:', error); 
         statusText.textContent = 'Failed to update password. Please try again later.';
@@ -291,11 +294,7 @@ submitPasswordBtn.addEventListener('click', async () => {
         clearStatusTextAfterDelay(statusText);
         submitPasswordBtn.disabled = false;
     }
-    
-    // Reset the button text and re-enable it after 3 seconds (optional)
-    setTimeout(() => {
-        submitPasswordBtn.textContent = 'Submitted'; 
-    }, 2000); // Adjust the delay as needed
+
 });
 
 
