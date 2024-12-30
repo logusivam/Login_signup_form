@@ -310,9 +310,7 @@ submitPasswordBtn.addEventListener('click', async () => {
             setTimeout(() => {
                 submitPasswordBtn.textContent = 'Submit'; 
                 submitPasswordBtn.disabled = false;
-            }, 4000);  
-            const errorData = await response.json();
-            throw new Error(errorData.message || 'Failed to update password');
+            }, 4000);   
              
         }  
         
