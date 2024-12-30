@@ -262,9 +262,9 @@ submitPasswordBtn.addEventListener('click', async () => {
             body: JSON.stringify({ email, newPassword }),
         });
 
+        submitPasswordBtn.textContent = 'Submitting...';
         const data = await response.json();
         statusText.textContent = data.message;
-        submitPasswordBtn.textContent = 'Submitting...';
 
         if (response.ok) {
             newPasswordInput.disabled = true;
