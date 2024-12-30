@@ -293,11 +293,11 @@ submitPasswordBtn.addEventListener('click', async () => {
                 submitPasswordBtn.textContent = 'Not Submitted'; 
                 submitPasswordBtn.disabled = false;
             }, 2000); // Adjust the delay as needed
-            // Reset the button text 
+             
             setTimeout(() => {
                 submitPasswordBtn.textContent = 'Submit'; 
                 submitPasswordBtn.disabled = false;
-            }, 3000); // Adjust the delay as needed
+            }, 3000);  
             
              
         }  
