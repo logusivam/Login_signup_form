@@ -236,8 +236,7 @@ submitPasswordBtn.addEventListener('click', async () => {
     if (!email) {
         statusText.textContent = 'Please enter your email first.';
         statusText.style.color = 'red';
-        emailInput.focus();
-        clearStatusTextAfterDelay(statusText);
+        emailInput.focus(); 
         return;
     }
 
