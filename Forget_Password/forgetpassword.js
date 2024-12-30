@@ -149,6 +149,7 @@ verifyBtn.addEventListener('click', async () => {
             clearStatusTextAfterDelay(statusText);  // To remove the statusText after 5 sec
         } else {
             statusText.style.color = 'red'; // Error message in red
+            clearStatusTextAfterDelay(statusText);
         }
     } catch (error) {
         console.error(error);
@@ -183,14 +184,17 @@ verifyOtpBtn.addEventListener('click', async () => {
             newPasswordSection.classList.remove('hidden');
             verifyOtpBtn.classList.remove('enabled'); 
             statusText.style.color = 'green'; // Success message in green
+            clearStatusTextAfterDelay(statusText);
             /* sendPasswordBtn.disabled = false; */
         } else {
             statusText.style.color = 'red'; // Error message in red
+            clearStatusTextAfterDelay(statusText);
         }
     } catch (error) {
         console.error(error);
         statusText.textContent = 'Error verifying OTP';
         statusText.style.color = 'red'; // Error in red for exception
+        clearStatusTextAfterDelay(statusText);
     }
 });
 /* otp verification for the forget-password page ends */
