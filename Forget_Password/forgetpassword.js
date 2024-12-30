@@ -287,6 +287,11 @@ submitPasswordBtn.addEventListener('click', async () => {
                 statusText.textContent ='Your new password cannot be the same as the old password. Please choose a different password.';
                 clearStatusTextAfterDelay(statusText);
             }
+
+               // Reset the button text 
+        setTimeout(() => {
+            submitPasswordBtn.textContent = 'Not Submitted'; 
+        }, 2000); // Adjust the delay as needed
         }    
         
     } catch (error) {
