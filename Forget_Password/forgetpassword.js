@@ -1,3 +1,15 @@
+const isDev = window.location.hostname === 'localhost';
+
+    function logDebug(message) {
+        if (!isDev) {
+            console.log = () => {};
+            console.warn = () => {};
+            console.error = () => {};
+        }
+    }
+    logDebug('Debugging in development mode');
+ 
+
 const emailInput = document.getElementById('email');
 const verifyBtn = document.getElementById('sendOtpBtn');
 const otpInput = document.querySelectorAll('.otp-digit');
