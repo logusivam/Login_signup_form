@@ -16,6 +16,17 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     }
 }); */
 
+const isDev = false; 
+
+    function logDebug(message) {
+        if (!isDev) {
+            console.log = () => {};
+            console.warn = () => {};
+            console.error = () => {};
+        }
+    }
+    logDebug('Debugging in development mode');
+
 const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("password");
 const beamEffect = document.getElementById("beamEffect");
