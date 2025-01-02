@@ -6,13 +6,15 @@ const authRoutes = require('./routes/auth');
 //for country detail 
 const { countries } = require('countries-list'); 
 const { logDebug } = require('./logger');
-
+const cors = require('cors');
 logDebug('Server is running in development mode');
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const path = require('path'); // Add this to handle file paths 
+// Enable CORS for all routes
+app.use(cors());
 
 // Middleware
 app.use(bodyParser.json());
