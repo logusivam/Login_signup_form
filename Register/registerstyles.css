@@ -2,6 +2,7 @@
 body {
     background-color: #121212;
     color: #fff;
+    overflow-x: hidden;
 }
 
 /* Sign up form container */
@@ -398,34 +399,6 @@ body {
     text-decoration: underline;  /* Add underline on hover */
 }
 
-/*
-More comprehensive version at shenanigans.shoghisimon.ca/collection/css-rain-bg/
- */
-
- b ody::after {
-    content: "";
-    position: absolute;
-    inset: 0; 
-    background-image: radial-gradient(
-      circle at 50% 50%,
-      #0000 0,
-      #0000 2px,
-      hsl(0 0 4%) 2px
-    );
-    background-size: 8px 8px;
-    --f: blur(1em) brightness(6);
-    animation: hii 10s linear infinite;
-  }
-  
-  @keyframes hii {
-    0% {
-      backdrop-filter: var(--f) hue-rotate(0deg);
-    }
-    to {
-      backdrop-filter: var(--f) hue-rotate(360deg);
-    }
-  }
-  
   body {
     position: relative;
     width: 100dvw;
