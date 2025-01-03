@@ -402,7 +402,7 @@ body {
 More comprehensive version at shenanigans.shoghisimon.ca/collection/css-rain-bg/
  */
 
- body::after {
+ b ody::after {
     content: "";
     position: absolute;
     inset: 0; 
