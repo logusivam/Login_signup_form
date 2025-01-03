@@ -338,7 +338,7 @@ body {
         padding: 30px;
     }
 }
-@media (max-width: 768px) {
+@media (max-width: 1400px) {
     .circle {
         width: 200px;
         height: 300px; 
