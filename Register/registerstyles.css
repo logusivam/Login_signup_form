@@ -6,10 +6,10 @@ body {
 
 /* Sign up form container */
 .sign-up-form {
-    background-color: #1e1e1e69;
+    background-color: #1e1e1ebd;
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.938);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.938);
     transition: width 0.3s ease;
     overflow: hidden;
     z-index: 1;
