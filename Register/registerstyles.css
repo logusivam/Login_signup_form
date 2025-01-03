@@ -337,13 +337,7 @@ body {
     .sign-up-form {
         padding: 30px;
     }
-}
-@media (max-width: 768px) {
-    .circle {
-        width: 200px;
-        height: 300px; 
-    }
-}
+} 
 
 @media (max-width: 576px) {
     .sign-up-form {
