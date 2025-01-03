@@ -9,7 +9,7 @@ body {
     background-color: #1e1e1e69;
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.938);
     transition: width 0.3s ease;
     overflow: hidden;
     z-index: 1;
