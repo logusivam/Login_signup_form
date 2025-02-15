@@ -126,8 +126,6 @@ function startTimer(duration) {
 //send password through gmail start
 verifyButton.addEventListener('click', async () => {
     const email = document.getElementById('email').value;
-    const apiUrl = process.env.API_URL;
-
     startTimer(countdownDuration);
     
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
@@ -136,7 +134,7 @@ verifyButton.addEventListener('click', async () => {
     }
     
     try {
-        const response = await fetch(`${apiUrl}/api/auth/send-otp`, {
+        const response = await fetch('http://localhost:5000/api/auth/send-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email }),
@@ -168,11 +166,9 @@ verifyButton.addEventListener('click', async () => {
 document.getElementById('submitOtp').addEventListener('click', async () => {
     const email = document.getElementById('email').value;
     const otp = document.getElementById('otpInput').value;
-    const apiUrl = process.env.API_URL;
-
 
     try {
-        const response = await fetch(`${apiUrl}/api/auth/verify-otp`, {
+        const response = await fetch('http://localhost:5000/api/auth/verify-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, otp }),
@@ -199,10 +195,8 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
 // Resend OTP Function
 async function resendOtp() {
     const email = emailInput.value;
-    const apiUrl = process.env.API_URL;
-
     try {
-        let response = await fetch(`${apiUrl}/api/auth/resend-otp`, {
+        let response = await fetch('http://localhost:5000/api/auth/resend-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })
@@ -540,10 +534,9 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
         receiveRecommEmails: document.getElementById('receiveRecommEmails').checked, */
     };
 
-    const apiUrl = process.env.API_URL;
     try {
         // Send data to the backend
-        const response = await fetch(`${apiUrl}/api/auth/signup`, {
+        const response = await fetch('http://localhost:5000/api/auth/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
