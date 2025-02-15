@@ -144,7 +144,7 @@ loginForm.addEventListener('submit', async (event) => {
 //secure token automatically
 const token = localStorage.getItem('token') || sessionStorage.getItem('token');
 if (token) {
-    fetch('http://localhost:5000/api/auth/protected', {
+    fetch('/api/auth/protected', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`,
