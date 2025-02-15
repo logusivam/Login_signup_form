@@ -15,6 +15,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         message.textContent = "Invalid email or password.";
     }
 }); */
+const dotenv = require('dotenv');
 
 const isDev = false; 
 
