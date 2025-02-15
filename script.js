@@ -121,11 +121,11 @@ loginForm.addEventListener('submit', async (event) => {
              messageElement.style.color = 'green'; // Success color
 
             // Store the JWT token
-            if (keepSignedIn) {
+            /* if (keepSignedIn) {
                 localStorage.setItem('token', result.token); // Store in localStorage for persistent login
             } else {
                 sessionStorage.setItem('token', result.token); // Store in sessionStorage for temporary login
-            }
+            } */
 
             // Redirect to another page on successful login
             window.location.href = 'https://github.com/logusivam';
