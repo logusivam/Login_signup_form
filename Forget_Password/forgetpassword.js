@@ -146,7 +146,7 @@ verifyBtn.addEventListener('click', async () => {
     const apiUrl = process.env.API_URL;
     
     try {
-        let response = await fetch('$/api/auth/forget-password/send-otp', {
+        let response = await fetch('${apiUrl}/api/auth/forget-password/send-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })
