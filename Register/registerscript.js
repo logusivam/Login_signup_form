@@ -134,7 +134,7 @@ verifyButton.addEventListener('click', async () => {
     }
     
     try {
-        const response = await fetch('http://localhost:5000/api/auth/send-otp', {
+        const response = await fetch('/api/auth/send-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email }),
@@ -168,7 +168,7 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
     const otp = document.getElementById('otpInput').value;
 
     try {
-        const response = await fetch('http://localhost:5000/api/auth/verify-otp', {
+        const response = await fetch('/api/auth/verify-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, otp }),
@@ -196,7 +196,7 @@ document.getElementById('submitOtp').addEventListener('click', async () => {
 async function resendOtp() {
     const email = emailInput.value;
     try {
-        let response = await fetch('http://localhost:5000/api/auth/resend-otp', {
+        let response = await fetch('/api/auth/resend-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })
