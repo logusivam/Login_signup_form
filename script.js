@@ -102,10 +102,12 @@ loginForm.addEventListener('submit', async (event) => {
     const password = document.getElementById('password').value;
     const keepSignedIn = document.getElementById('keepSignedIn').checked;     // Check "Keep Me Signed In"
     const messageElement = document.getElementById('message'); // Get the message element
+    const apiUrl = process.env.API_URL;
+
 
 
     try {
-        const response = await fetch('http://localhost:5000/api/auth/login', {
+        const response = await fetch(`${apiUrl}/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -143,8 +145,10 @@ loginForm.addEventListener('submit', async (event) => {
 
 //secure token automatically
 const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+const apiUrl = process.env.API_URL;
+
 if (token) {
-    fetch('http://localhost:5000/api/auth/protected', {
+    fetch(`${apiUrl}/api/auth/protected`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`,
