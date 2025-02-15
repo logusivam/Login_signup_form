@@ -540,9 +540,10 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
         receiveRecommEmails: document.getElementById('receiveRecommEmails').checked, */
     };
 
+    const apiUrl = process.env.API_URL;
     try {
         // Send data to the backend
-        const response = await fetch('http://localhost:5000/api/auth/signup', {
+        const response = await fetch(`${apiUrl}/api/auth/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
