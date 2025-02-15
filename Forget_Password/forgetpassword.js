@@ -247,6 +247,8 @@ sendPasswordBtn.addEventListener('click', async () => {
 submitPasswordBtn.addEventListener('click', async () => {
     const email = emailInput.value.trim();
     const newPassword = newPasswordInput.value.trim();
+    const apiUrl = process.env.API_URL;
+
 
     // Validation Steps
     if (!email) {
@@ -273,7 +275,7 @@ submitPasswordBtn.addEventListener('click', async () => {
     submitPasswordBtn.disabled = true;
 
     try {
-        const response = await fetch('http://localhost:5000/api/auth/update-password', {
+        const response = await fetch(`${apiUrl}/api/auth/update-password`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
