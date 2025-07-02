@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../Register/register.html'));
 });
 
-
+// Serve static files from the parent directory
 app.use(express.static(path.join(__dirname, '../')));
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'));
